@@ -22,6 +22,7 @@
 		62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2C1F28C05F00914FB5 /* SMRegion.swift */; };
 		62F65D301F28C1F900914FB5 /* SMRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2F1F28C1F900914FB5 /* SMRegionViewController.swift */; };
 		62FA93B21F2F2E5200AAE7CF /* my_location_black_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = 62FA93B11F2F2E5200AAE7CF /* my_location_black_192x192.png */; };
+		62FA93B41F2F3C3300AAE7CF /* SMSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FA93B31F2F3C3300AAE7CF /* SMSegment.swift */; };
 		62FB4B5E1F29C436002885D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62FB4B5D1F29C436002885D9 /* GoogleService-Info.plist */; };
 		E503B3E7E3064D356232853D /* Pods_Saudi_AttractionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */; };
 		E99E33C52A749475660921F1 /* Pods_Saudi_Attraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */; };
@@ -68,6 +69,7 @@
 		62F65D2C1F28C05F00914FB5 /* SMRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegion.swift; sourceTree = "<group>"; };
 		62F65D2F1F28C1F900914FB5 /* SMRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegionViewController.swift; sourceTree = "<group>"; };
 		62FA93B11F2F2E5200AAE7CF /* my_location_black_192x192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_location_black_192x192.png; sourceTree = "<group>"; };
+		62FA93B31F2F3C3300AAE7CF /* SMSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegment.swift; sourceTree = "<group>"; };
 		62FB4B5D1F29C436002885D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA210420C17CD746C88B1A7 /* Pods-Saudi Attraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi Attraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi Attraction/Pods-Saudi Attraction.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				62F65D2E1F28C0CD00914FB5 /* Assets */,
 				62F65CFC1F28B10B00914FB5 /* SMViewController.swift */,
 				62F65CFE1F28B10B00914FB5 /* Main.storyboard */,
+				62FA93B31F2F3C3300AAE7CF /* SMSegment.swift */,
 				62F65D2F1F28C1F900914FB5 /* SMRegionViewController.swift */,
 				62F65D061F28B10B00914FB5 /* Info.plist */,
 				62FA93B11F2F2E5200AAE7CF /* my_location_black_192x192.png */,
@@ -492,6 +495,7 @@
 				62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */,
 				62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */,
 				62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */,
+				62FA93B41F2F3C3300AAE7CF /* SMSegment.swift in Sources */,
 				62F65D291F28BFD800914FB5 /* SMDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
