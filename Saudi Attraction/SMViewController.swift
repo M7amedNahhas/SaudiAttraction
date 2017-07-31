@@ -9,9 +9,19 @@
 import UIKit
 import MapKit
 import Firebase
+import CoreLocation
 
-class SMViewController: UIViewController {
+class SMViewController: UIViewController,CLLocationManagerDelegate {
     
+    
+    let manager = CLLocationManager()
+    
+    
+    @IBAction func currentLocationActionBT(_ sender: UIButton) {
+        
+        manager.startUpdatingLocation()
+        
+    }
     
     let ksa = CLLocationCoordinate2DMake(24.7135517, 46.67529569999999)
     let makkah = CLLocationCoordinate2DMake(21.3890824, 39.85791180000001)
@@ -21,6 +31,24 @@ class SMViewController: UIViewController {
     
     @IBOutlet weak var mainMap: MKMapView!
     
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        
+        
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        mainMap.setRegion(region, animated: true)
+        
+        
+        self.mainMap.showsUserLocation = true
+        
+        
+        
+        
+    }
+
 
     
     override func viewDidLoad() {
@@ -42,6 +70,10 @@ class SMViewController: UIViewController {
         mainMap.addAnnotation(makkahPin)
         mainMap.addAnnotation(jeddahPin)
         mainMap.addAnnotation(riyadhPin)
+        
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
         
         }
    
