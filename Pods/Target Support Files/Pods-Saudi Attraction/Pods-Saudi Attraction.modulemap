@@ -1,0 +1,6 @@
+framework module Pods_Saudi_Attraction {
+  umbrella header "Pods-Saudi Attraction-umbrella.h"
+
+  export *
+  module * { export * }
+}
