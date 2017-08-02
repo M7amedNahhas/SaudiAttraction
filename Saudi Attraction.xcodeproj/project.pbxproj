@@ -30,6 +30,12 @@
 		62F966D21F31B8D500567A16 /* NLSegmentControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62F966D71F31B92300567A16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966D61F31B92300567A16 /* Category.swift */; };
 		62F966D91F31C86100567A16 /* my_location_black_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966D81F31C86100567A16 /* my_location_black_192x192.png */; };
+		62F966E71F3201A200567A16 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F966E61F3201A200567A16 /* image.xcassets */; };
+		62F966ED1F3201BB00567A16 /* Historical.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966E81F3201BB00567A16 /* Historical.png */; };
+		62F966EE1F3201BB00567A16 /* Park.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966E91F3201BB00567A16 /* Park.png */; };
+		62F966EF1F3201BB00567A16 /* Mall.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EA1F3201BB00567A16 /* Mall.png */; };
+		62F966F01F3201BB00567A16 /* Religious.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EB1F3201BB00567A16 /* Religious.png */; };
+		62F966F11F3201BB00567A16 /* All.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EC1F3201BB00567A16 /* All.png */; };
 		62FB4B5E1F29C436002885D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62FB4B5D1F29C436002885D9 /* GoogleService-Info.plist */; };
 		C09C51591F309FE300F5D338 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C51581F309FE300F5D338 /* DataContainer.swift */; };
 		C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515A1F31C61100F5D338 /* SMRegionManager.swift */; };
@@ -102,6 +108,12 @@
 		62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NLSegmentControl.framework; sourceTree = "<group>"; };
 		62F966D61F31B92300567A16 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		62F966D81F31C86100567A16 /* my_location_black_192x192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_location_black_192x192.png; sourceTree = "<group>"; };
+		62F966E61F3201A200567A16 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
+		62F966E81F3201BB00567A16 /* Historical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Historical.png; sourceTree = "<group>"; };
+		62F966E91F3201BB00567A16 /* Park.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Park.png; sourceTree = "<group>"; };
+		62F966EA1F3201BB00567A16 /* Mall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mall.png; sourceTree = "<group>"; };
+		62F966EB1F3201BB00567A16 /* Religious.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Religious.png; sourceTree = "<group>"; };
+		62F966EC1F3201BB00567A16 /* All.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = All.png; sourceTree = "<group>"; };
 		62FB4B5D1F29C436002885D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA210420C17CD746C88B1A7 /* Pods-Saudi Attraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi Attraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi Attraction/Pods-Saudi Attraction.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +201,7 @@
 				62F65CFC1F28B10B00914FB5 /* SMViewController.swift */,
 				62F65CFE1F28B10B00914FB5 /* Main.storyboard */,
 				62F966D61F31B92300567A16 /* Category.swift */,
+				62F966F21F3201C900567A16 /* images */,
 				62F65D2F1F28C1F900914FB5 /* SMRegionViewController.swift */,
 				62F966D81F31C86100567A16 /* my_location_black_192x192.png */,
 				62F65D061F28B10B00914FB5 /* Info.plist */,
@@ -197,6 +210,7 @@
 				62F65D2C1F28C05F00914FB5 /* SMRegion.swift */,
 				C09C515A1F31C61100F5D338 /* SMRegionManager.swift */,
 				C09C51581F309FE300F5D338 /* DataContainer.swift */,
+				62F966E61F3201A200567A16 /* image.xcassets */,
 			);
 			path = "Saudi Attraction";
 			sourceTree = "<group>";
@@ -240,6 +254,18 @@
 				62F966C41F31B71F00567A16 /* UIView+Layout.swift */,
 			);
 			path = NLSegmentControl;
+			sourceTree = "<group>";
+		};
+		62F966F21F3201C900567A16 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				62F966E81F3201BB00567A16 /* Historical.png */,
+				62F966E91F3201BB00567A16 /* Park.png */,
+				62F966EA1F3201BB00567A16 /* Mall.png */,
+				62F966EB1F3201BB00567A16 /* Religious.png */,
+				62F966EC1F3201BB00567A16 /* All.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		8F9A815094C1D5FB1E19867C /* Pods */ = {
@@ -377,11 +403,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F966EE1F3201BB00567A16 /* Park.png in Resources */,
+				62F966F01F3201BB00567A16 /* Religious.png in Resources */,
 				62F65D051F28B10B00914FB5 /* LaunchScreen.storyboard in Resources */,
 				62FB4B5E1F29C436002885D9 /* GoogleService-Info.plist in Resources */,
+				62F966EF1F3201BB00567A16 /* Mall.png in Resources */,
 				62F65D021F28B10B00914FB5 /* Assets.xcassets in Resources */,
+				62F966ED1F3201BB00567A16 /* Historical.png in Resources */,
 				627CD82A1F30AD88009A5EC0 /* images.xcassets in Resources */,
 				62F966C51F31B71F00567A16 /* Info.plist in Resources */,
+				62F966E71F3201A200567A16 /* image.xcassets in Resources */,
+				62F966F11F3201BB00567A16 /* All.png in Resources */,
 				62F966D91F31C86100567A16 /* my_location_black_192x192.png in Resources */,
 				62F65D001F28B10B00914FB5 /* Main.storyboard in Resources */,
 			);
