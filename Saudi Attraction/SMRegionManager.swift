@@ -17,12 +17,5 @@ class SMRegionManager   {
     // Answers main Application Model Question
     // Loading for Data from server.
     // Reflect this data on views
-    
-    
-    func getAttractions( forRegionID id: Int) -> SMRegion{
-        // search from his list of region on the same region ID
-        
-        // if exist return the region
-        return []
-    }
+
 }

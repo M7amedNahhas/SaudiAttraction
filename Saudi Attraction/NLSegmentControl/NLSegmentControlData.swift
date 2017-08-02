@@ -29,23 +29,6 @@ public extension NLSegment {
     }
 }
 
-// e.g. segmentControl.segments = [String]
-extension String: NLSegment {
-    public var segmentIdentifier: String {
-        return self
-    }
-    public var segmentTitle: String? {
-        return self
-    }
-}
-
-// e.g. segmentControl.segments = [UIImage]
-extension UIImage: NLSegment {
-    public var segmentImage: UIImage? {
-        return self
-    }
-}
-
 /// e.g. segmentControl.segments = [NLUISegmentItem]
 public struct NLSegmentItem {
     public var title: String?
