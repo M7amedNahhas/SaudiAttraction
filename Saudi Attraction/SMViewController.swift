@@ -122,9 +122,16 @@ class SMViewController: UIViewController,CLLocationManagerDelegate {
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
+
         
-        //segmented 
+        prepareSegmentView()
         
+        }
+   
+    
+    func prepareSegmentView(){
+    
+        //segmented
         let item11 = Category(title: "All", image: "All", selectedImage: "All")
         let item12 = Category(title: "Mall", image: "Mall", selectedImage: "Mall")
         let item13 = Category(title: "Religious", image: "Religious", selectedImage: "Religious")
@@ -144,6 +151,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate {
         imageTextSegment.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.black]
         imageTextSegment.selectedTitleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)]
         
+        
+        
         imageTextSegment.indexChangedHandler = {
             (index) in
             print("Ramadan changed: \(index)")
@@ -154,11 +163,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate {
         imageTextSegment.nl_equalRight(toView: self.Segment, offset: 0)
         imageTextSegment.nl_heightIs(60)
         imageTextSegment.reloadSegments()
-        
-        
-        
-        }
-   
+    }
     
 
     
