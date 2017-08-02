@@ -24,6 +24,8 @@
 		62FA93B21F2F2E5200AAE7CF /* my_location_black_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = 62FA93B11F2F2E5200AAE7CF /* my_location_black_192x192.png */; };
 		62FA93B41F2F3C3300AAE7CF /* SMSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FA93B31F2F3C3300AAE7CF /* SMSegment.swift */; };
 		62FB4B5E1F29C436002885D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62FB4B5D1F29C436002885D9 /* GoogleService-Info.plist */; };
+		C09C51591F309FE300F5D338 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C51581F309FE300F5D338 /* DataContainer.swift */; };
+		C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515A1F31C61100F5D338 /* SMRegionManager.swift */; };
 		E503B3E7E3064D356232853D /* Pods_Saudi_AttractionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */; };
 		E99E33C52A749475660921F1 /* Pods_Saudi_Attraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,8 @@
 		95D86EABCB225879F85BC4FC /* Pods-Saudi AttractionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.release.xcconfig"; sourceTree = "<group>"; };
 		9AA5A8EB44A8BCBAFF3D781B /* Pods-Saudi AttractionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_Attraction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09C51581F309FE300F5D338 /* DataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
+		C09C515A1F31C61100F5D338 /* SMRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegionManager.swift; sourceTree = "<group>"; };
 		C47B50EA33B56A8F9AD40F84 /* Pods_Saudi_AttractionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,6 +160,8 @@
 				62F65D281F28BFD800914FB5 /* SMDetails.swift */,
 				62F65D2A1F28C03800914FB5 /* SMAttraction.swift */,
 				62F65D2C1F28C05F00914FB5 /* SMRegion.swift */,
+				C09C515A1F31C61100F5D338 /* SMRegionManager.swift */,
+				C09C51581F309FE300F5D338 /* DataContainer.swift */,
 			);
 			path = "Saudi Attraction";
 			sourceTree = "<group>";
@@ -493,6 +499,8 @@
 				62F65D301F28C1F900914FB5 /* SMRegionViewController.swift in Sources */,
 				62F65CFD1F28B10B00914FB5 /* SMViewController.swift in Sources */,
 				62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */,
+				C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */,
+				C09C51591F309FE300F5D338 /* DataContainer.swift in Sources */,
 				62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */,
 				62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */,
 				62FA93B41F2F3C3300AAE7CF /* SMSegment.swift in Sources */,

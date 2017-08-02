@@ -11,10 +11,15 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class SMViewController: UIViewController,CLLocationManagerDelegate {
-    
-    
+class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBarDelegate {
+   
     let manager = CLLocationManager()
+    
+    
+    
+
+    @IBOutlet var searchBarMap: UISearchBar!
+    
     
     
     @IBAction func currentLocationActionBT(_ sender: UIButton) {
@@ -23,10 +28,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-    let ksa = CLLocationCoordinate2DMake(24.7135517, 46.67529569999999)
-    let makkah = CLLocationCoordinate2DMake(21.3890824, 39.85791180000001)
-    let jeddah = CLLocationCoordinate2DMake(21.2854067, 39.23755069999993)
-    let riyadh = CLLocationCoordinate2DMake(24.7135517, 46.67529569999999)
+   
     
     
     @IBOutlet weak var mainMap: MKMapView!
@@ -36,7 +38,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate {
         let location = locations[0]
         
         
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1)
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         mainMap.setRegion(region, animated: true)
@@ -53,32 +55,62 @@ class SMViewController: UIViewController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         
+        searchBarMap.delegate = self
         
         mainMap.showsUserLocation = true
         
-        self.mainMap.setVisibleMapRect(self.mainMap.visibleMapRect,edgePadding: UIEdgeInsetsMake(80.0, 60.0, 60, 60.0), animated: true)
-        mainMap.setRegion(MKCoordinateRegionMakeWithDistance(ksa, 500000, 1000000), animated: true)
-        mainMap.setRegion(MKCoordinateRegionMakeWithDistance(makkah, 1000000, 2000000), animated: true)
-        mainMap.setRegion(MKCoordinateRegionMakeWithDistance(jeddah, 1000000, 2000000), animated: true)
-        mainMap.setRegion(MKCoordinateRegionMakeWithDistance(riyadh, 1000000, 2000000), animated: true)
-        
-        let makkahPin = SMRegion(regionName: "Makkah", numberOfAttractions: 3, coordinate: makkah)
-        let jeddahPin = SMRegion(regionName: "Jeddah", numberOfAttractions: 5, coordinate: jeddah)
-        let riyadhPin = SMRegion(regionName: "Riyadh", numberOfAttractions: 10, coordinate: riyadh)
-       
-        
-        mainMap.addAnnotation(makkahPin)
-        mainMap.addAnnotation(jeddahPin)
-        mainMap.addAnnotation(riyadhPin)
         
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         
-        }
+        
+        
+       
+                
+        
+       
    
-    
+    }
 
+
+
+
+
+
+
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(self.searchBarMap.text!) { (placemarks:[CLPlacemark]?, error:Error?) in
+            if error == nil {
+                
+                let placemark = placemarks?.first
+                
+                let anno = MKPointAnnotation()
+                anno.coordinate = (placemark?.location?.coordinate)!
+                anno.title = self.searchBarMap.text!
+                
+                let span = MKCoordinateSpanMake(0.1, 0.1)
+                let region = MKCoordinateRegion(center: anno.coordinate, span: span)
+                
+                self.mainMap.setRegion(region, animated: true)
+                
+                self.mainMap.selectAnnotation(anno, animated: true)
+                
+                
+                
+            }else{
+                print(error?.localizedDescription ?? "error")
+            }
+            
+            
+        }
+        
+        
+    }
     
 
     override func didReceiveMemoryWarning() {
