@@ -10,6 +10,7 @@
 		612558A8ACA021DD5AB45D33 /* Pods_Saudi_AttractionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47B50EA33B56A8F9AD40F84 /* Pods_Saudi_AttractionTests.framework */; };
 		62320E2F1F29C63D00873E79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62320E2E1F29C63D00873E79 /* MapKit.framework */; };
 		62320E311F29C67100873E79 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62320E301F29C67100873E79 /* CoreLocation.framework */; };
+		627CD82A1F30AD88009A5EC0 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627CD8291F30AD88009A5EC0 /* images.xcassets */; };
 		62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65CFA1F28B10B00914FB5 /* AppDelegate.swift */; };
 		62F65CFD1F28B10B00914FB5 /* SMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65CFC1F28B10B00914FB5 /* SMViewController.swift */; };
 		62F65D001F28B10B00914FB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F65CFE1F28B10B00914FB5 /* Main.storyboard */; };
@@ -21,8 +22,14 @@
 		62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2A1F28C03800914FB5 /* SMAttraction.swift */; };
 		62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2C1F28C05F00914FB5 /* SMRegion.swift */; };
 		62F65D301F28C1F900914FB5 /* SMRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2F1F28C1F900914FB5 /* SMRegionViewController.swift */; };
-		62FA93B21F2F2E5200AAE7CF /* my_location_black_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = 62FA93B11F2F2E5200AAE7CF /* my_location_black_192x192.png */; };
-		62FA93B41F2F3C3300AAE7CF /* SMSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FA93B31F2F3C3300AAE7CF /* SMSegment.swift */; };
+		62F966C51F31B71F00567A16 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62F966C01F31B71F00567A16 /* Info.plist */; };
+		62F966C61F31B71F00567A16 /* NLSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C21F31B71F00567A16 /* NLSegmentControl.swift */; };
+		62F966C71F31B71F00567A16 /* NLSegmentControlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C31F31B71F00567A16 /* NLSegmentControlData.swift */; };
+		62F966C81F31B71F00567A16 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C41F31B71F00567A16 /* UIView+Layout.swift */; };
+		62F966D11F31B8D500567A16 /* NLSegmentControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */; };
+		62F966D21F31B8D500567A16 /* NLSegmentControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62F966D71F31B92300567A16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966D61F31B92300567A16 /* Category.swift */; };
+		62F966D91F31C86100567A16 /* my_location_black_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966D81F31C86100567A16 /* my_location_black_192x192.png */; };
 		62FB4B5E1F29C436002885D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62FB4B5D1F29C436002885D9 /* GoogleService-Info.plist */; };
 		C09C51591F309FE300F5D338 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C51581F309FE300F5D338 /* DataContainer.swift */; };
 		C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515A1F31C61100F5D338 /* SMRegionManager.swift */; };
@@ -47,12 +54,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		62F966D31F31B8D500567A16 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				62F966D21F31B8D500567A16 /* NLSegmentControl.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0FD5DA06469BC4EFEEE7916E /* Pods-Saudi AttractionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionUITests/Pods-Saudi AttractionUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		33375C2CB77D331C36F52590 /* Pods-Saudi Attraction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi Attraction.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi Attraction/Pods-Saudi Attraction.release.xcconfig"; sourceTree = "<group>"; };
 		416ADF0AB4DC3E04B2BEBC97 /* Pods-Saudi AttractionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionUITests/Pods-Saudi AttractionUITests.release.xcconfig"; sourceTree = "<group>"; };
 		62320E2E1F29C63D00873E79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		62320E301F29C67100873E79 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		627CD8291F30AD88009A5EC0 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		62F65CF71F28B10B00914FB5 /* Saudi Attraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saudi Attraction.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F65CFA1F28B10B00914FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F65CFC1F28B10B00914FB5 /* SMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMViewController.swift; sourceTree = "<group>"; };
@@ -70,8 +92,16 @@
 		62F65D2A1F28C03800914FB5 /* SMAttraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMAttraction.swift; sourceTree = "<group>"; };
 		62F65D2C1F28C05F00914FB5 /* SMRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegion.swift; sourceTree = "<group>"; };
 		62F65D2F1F28C1F900914FB5 /* SMRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegionViewController.swift; sourceTree = "<group>"; };
-		62FA93B11F2F2E5200AAE7CF /* my_location_black_192x192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_location_black_192x192.png; sourceTree = "<group>"; };
-		62FA93B31F2F3C3300AAE7CF /* SMSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegment.swift; sourceTree = "<group>"; };
+		62F966C01F31B71F00567A16 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62F966C11F31B71F00567A16 /* NLSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSegmentControl.h; sourceTree = "<group>"; };
+		62F966C21F31B71F00567A16 /* NLSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLSegmentControl.swift; sourceTree = "<group>"; };
+		62F966C31F31B71F00567A16 /* NLSegmentControlData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLSegmentControlData.swift; sourceTree = "<group>"; };
+		62F966C41F31B71F00567A16 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		62F966C91F31B75C00567A16 /* NLSegmentControl.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = NLSegmentControl.podspec; path = "../../Downloads/NLSegmentControl-master/NLSegmentControl.podspec"; sourceTree = "<group>"; };
+		62F966CB1F31B89700567A16 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NLSegmentControl.framework; path = "../../Library/Developer/Xcode/DerivedData/NLSegmentControlExample-dfrgeaostrbqvcghbbjepjgewfii/Build/Products/Debug-iphonesimulator/NLSegmentControl.framework"; sourceTree = "<group>"; };
+		62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NLSegmentControl.framework; sourceTree = "<group>"; };
+		62F966D61F31B92300567A16 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		62F966D81F31C86100567A16 /* my_location_black_192x192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_location_black_192x192.png; sourceTree = "<group>"; };
 		62FB4B5D1F29C436002885D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA210420C17CD746C88B1A7 /* Pods-Saudi Attraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi Attraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi Attraction/Pods-Saudi Attraction.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F966D11F31B8D500567A16 /* NLSegmentControl.framework in Frameworks */,
 				62320E311F29C67100873E79 /* CoreLocation.framework in Frameworks */,
 				62320E2F1F29C63D00873E79 /* MapKit.framework in Frameworks */,
 				E99E33C52A749475660921F1 /* Pods_Saudi_Attraction.framework in Frameworks */,
@@ -116,6 +147,8 @@
 		227F8770AE61159A4B62C9E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62F966CB1F31B89700567A16 /* NLSegmentControl.framework */,
+				62F966C91F31B75C00567A16 /* NLSegmentControl.podspec */,
 				62320E301F29C67100873E79 /* CoreLocation.framework */,
 				62320E2E1F29C63D00873E79 /* MapKit.framework */,
 				B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */,
@@ -128,6 +161,7 @@
 		62F65CEE1F28B10B00914FB5 = {
 			isa = PBXGroup;
 			children = (
+				62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */,
 				62F65CF91F28B10B00914FB5 /* Saudi Attraction */,
 				62F65D0E1F28B10B00914FB5 /* Saudi AttractionTests */,
 				62F65D191F28B10B00914FB5 /* Saudi AttractionUITests */,
@@ -150,13 +184,14 @@
 		62F65CF91F28B10B00914FB5 /* Saudi Attraction */ = {
 			isa = PBXGroup;
 			children = (
+				62F966BF1F31B71F00567A16 /* NLSegmentControl */,
 				62F65D2E1F28C0CD00914FB5 /* Assets */,
 				62F65CFC1F28B10B00914FB5 /* SMViewController.swift */,
 				62F65CFE1F28B10B00914FB5 /* Main.storyboard */,
-				62FA93B31F2F3C3300AAE7CF /* SMSegment.swift */,
+				62F966D61F31B92300567A16 /* Category.swift */,
 				62F65D2F1F28C1F900914FB5 /* SMRegionViewController.swift */,
+				62F966D81F31C86100567A16 /* my_location_black_192x192.png */,
 				62F65D061F28B10B00914FB5 /* Info.plist */,
-				62FA93B11F2F2E5200AAE7CF /* my_location_black_192x192.png */,
 				62F65D281F28BFD800914FB5 /* SMDetails.swift */,
 				62F65D2A1F28C03800914FB5 /* SMAttraction.swift */,
 				62F65D2C1F28C05F00914FB5 /* SMRegion.swift */,
@@ -195,6 +230,18 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		62F966BF1F31B71F00567A16 /* NLSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				62F966C01F31B71F00567A16 /* Info.plist */,
+				62F966C11F31B71F00567A16 /* NLSegmentControl.h */,
+				62F966C21F31B71F00567A16 /* NLSegmentControl.swift */,
+				62F966C31F31B71F00567A16 /* NLSegmentControlData.swift */,
+				62F966C41F31B71F00567A16 /* UIView+Layout.swift */,
+			);
+			path = NLSegmentControl;
+			sourceTree = "<group>";
+		};
 		8F9A815094C1D5FB1E19867C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +268,7 @@
 				62F65CF51F28B10B00914FB5 /* Resources */,
 				AA70FCD0E3AF24DB9CB04AEC /* [CP] Embed Pods Frameworks */,
 				495C1524DC8E7B33E68A6546 /* [CP] Copy Pods Resources */,
+				62F966D31F31B8D500567A16 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,10 +377,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62FA93B21F2F2E5200AAE7CF /* my_location_black_192x192.png in Resources */,
 				62F65D051F28B10B00914FB5 /* LaunchScreen.storyboard in Resources */,
 				62FB4B5E1F29C436002885D9 /* GoogleService-Info.plist in Resources */,
 				62F65D021F28B10B00914FB5 /* Assets.xcassets in Resources */,
+				627CD82A1F30AD88009A5EC0 /* images.xcassets in Resources */,
+				62F966C51F31B71F00567A16 /* Info.plist in Resources */,
+				62F966D91F31C86100567A16 /* my_location_black_192x192.png in Resources */,
 				62F65D001F28B10B00914FB5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,13 +547,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				62F65D301F28C1F900914FB5 /* SMRegionViewController.swift in Sources */,
+				62F966D71F31B92300567A16 /* Category.swift in Sources */,
+				62F966C61F31B71F00567A16 /* NLSegmentControl.swift in Sources */,
 				62F65CFD1F28B10B00914FB5 /* SMViewController.swift in Sources */,
 				62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */,
 				C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */,
 				C09C51591F309FE300F5D338 /* DataContainer.swift in Sources */,
 				62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */,
+				62F966C81F31B71F00567A16 /* UIView+Layout.swift in Sources */,
+				62F966C71F31B71F00567A16 /* NLSegmentControlData.swift in Sources */,
 				62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */,
-				62FA93B41F2F3C3300AAE7CF /* SMSegment.swift in Sources */,
 				62F65D291F28BFD800914FB5 /* SMDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,6 +712,10 @@
 			baseConfigurationReference = 8AA210420C17CD746C88B1A7 /* Pods-Saudi Attraction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Saudi Attraction/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WadiMakkah.Saudi-Attraction";
@@ -672,6 +729,10 @@
 			baseConfigurationReference = 33375C2CB77D331C36F52590 /* Pods-Saudi Attraction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Saudi Attraction/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WadiMakkah.Saudi-Attraction";
