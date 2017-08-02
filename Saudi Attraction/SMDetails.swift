@@ -7,13 +7,37 @@
 //
 
 import Foundation
-import CoreImage
+import UIKit
 class SMDetails{
 
-    var SMType: String?
-    var SMDescription: String?
-    var SMIfo: String?
+    var _SMType: String?
+    var _SMDescription: String?
+    var _SMInfo: String?
+    var _SMImage : UIImage?
     
+    var SMType : String {
+        return _SMType!
+    
+    }
+    var SMDeacription : String {
+        return _SMDescription!
+        
+    }
+    var SMInfo : String {
+        return _SMInfo!
+        
+    }
+    var SMImage : UIImage {
+        return _SMImage!
+        
+    }
+    
+    init(SMType: String, SMDescription: String/*, SMInfo: String, SMImage: UIImage*/) {
+        self._SMInfo = SMInfo
+        self._SMDescription = SMDescription
+        self._SMType = SMType
+        self._SMImage = SMImage
+    }
    
     
     

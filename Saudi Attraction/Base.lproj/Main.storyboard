@@ -40,54 +40,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IO2-bM-nAw">
-                                <rect key="frame" x="0.0" y="100" width="375" height="518"/>
+                                <rect key="frame" x="0.0" y="121" width="375" height="497"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="518" id="044-yN-XVi"/>
+                                    <constraint firstAttribute="height" constant="497" id="044-yN-XVi"/>
                                 </constraints>
                             </mapView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="h6E-hd-mwr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Oti-sY-7Gw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                </segments>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmH-Y8-HbW">
-                                <rect key="frame" x="329" y="578" width="46" height="40"/>
+                                <rect key="frame" x="303" y="555" width="72" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="QYb-Fr-rGv"/>
+                                    <constraint firstAttribute="height" constant="63" id="u6j-DY-OQI"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="my_location_black_192x192.png"/>
                                 <connections>
                                     <action selector="currentLocationActionBT:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hay-Dc-SFI"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="h6E-hd-mwr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca6-IP-GsN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.29854728429999999" green="1" blue="0.99191771689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IO2-bM-nAw" secondAttribute="bottom" id="5aR-QG-UHO"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DmH-Y8-HbW" secondAttribute="bottom" id="DjO-LH-5xO"/>
+                            <constraint firstItem="ca6-IP-GsN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BKt-MK-aKh"/>
+                            <constraint firstItem="DmH-Y8-HbW" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="MnS-g1-WWo"/>
                             <constraint firstAttribute="trailing" secondItem="h6E-hd-mwr" secondAttribute="trailing" id="NiL-Vy-PSf"/>
-                            <constraint firstItem="Oti-sY-7Gw" firstAttribute="leading" secondItem="h6E-hd-mwr" secondAttribute="leading" id="XBH-W9-6i1"/>
-                            <constraint firstItem="Oti-sY-7Gw" firstAttribute="top" secondItem="h6E-hd-mwr" secondAttribute="bottom" id="cDp-FS-kAo"/>
-                            <constraint firstItem="DmH-Y8-HbW" firstAttribute="top" secondItem="Oti-sY-7Gw" secondAttribute="bottom" constant="486" id="gbi-TZ-KAf"/>
-                            <constraint firstItem="Oti-sY-7Gw" firstAttribute="trailing" secondItem="h6E-hd-mwr" secondAttribute="trailing" id="ibQ-e1-thT"/>
+                            <constraint firstItem="DmH-Y8-HbW" firstAttribute="trailing" secondItem="IO2-bM-nAw" secondAttribute="trailing" id="PRt-aP-Mmp"/>
+                            <constraint firstItem="IO2-bM-nAw" firstAttribute="top" secondItem="ca6-IP-GsN" secondAttribute="bottom" constant="-3" id="feH-eC-Der"/>
+                            <constraint firstItem="ca6-IP-GsN" firstAttribute="top" secondItem="h6E-hd-mwr" secondAttribute="bottom" id="hPi-Jz-mrn"/>
                             <constraint firstItem="h6E-hd-mwr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ltw-43-4Ss"/>
                             <constraint firstItem="h6E-hd-mwr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="n4X-zU-caQ"/>
-                            <constraint firstItem="IO2-bM-nAw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="pDx-Sa-Rpr"/>
-                            <constraint firstItem="DmH-Y8-HbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="329" id="qWm-DT-h4m"/>
+                            <constraint firstAttribute="trailing" secondItem="ca6-IP-GsN" secondAttribute="trailing" id="oDM-lr-kLX"/>
+                            <constraint firstItem="IO2-bM-nAw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="101" id="pDx-Sa-Rpr"/>
                             <constraint firstItem="IO2-bM-nAw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="t09-aQ-1LE"/>
-                            <constraint firstAttribute="trailing" secondItem="DmH-Y8-HbW" secondAttribute="trailing" id="tpo-wh-pqr"/>
                             <constraint firstAttribute="trailing" secondItem="IO2-bM-nAw" secondAttribute="trailing" id="ueW-gC-nGj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="GcG-e1-nZi"/>
                     <navigationItem key="navigationItem" id="Ezq-QL-JSF"/>
                     <connections>
+                        <outlet property="Segment" destination="ca6-IP-GsN" id="EDy-EM-638"/>
                         <outlet property="mainMap" destination="IO2-bM-nAw" id="E4A-RJ-rBR"/>
                     </connections>
                 </viewController>

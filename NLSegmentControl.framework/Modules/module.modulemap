@@ -1,0 +1,10 @@
+framework module NLSegmentControl {
+  umbrella header "NLSegmentControl.h"
+
+  export *
+  module * { export * }
+}
+
+module NLSegmentControl.Swift {
+    header "NLSegmentControl-Swift.h"
+}
