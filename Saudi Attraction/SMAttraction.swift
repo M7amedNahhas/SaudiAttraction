@@ -12,7 +12,7 @@ import CoreLocation
 import MapKit
 
 
-class SMAttraction: MKPointAnnotation{
+class SMAttraction: NSObject , MKAnnotation{
     
     private var _name: String?
     private var _latitude: Double
@@ -21,6 +21,8 @@ class SMAttraction: MKPointAnnotation{
     private var _description: String?
     private var _info: String?
     private var _image : UIImage?
+    
+    let coordinate : CLLocationCoordinate2D
     
    /* var type : String {
         return _type!
@@ -58,6 +60,8 @@ class SMAttraction: MKPointAnnotation{
         self._latitude = latitude
         self._longitude = longitude
         self._info = info
+        
+        self.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
        /*
          self._type = type
         self._description = description
