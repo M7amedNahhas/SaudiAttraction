@@ -13,14 +13,16 @@ import CoreLocation
 class SMRegion : NSObject , MKAnnotation {
     
     let regionName: String?
-    let numberOfAttractions: Double?
     let coordinate : CLLocationCoordinate2D
     
-    init(regionName:String, numberOfAttractions: Double, coordinate : CLLocationCoordinate2D ) {
+    var attractionList : [SMAttraction]?
+    
+    init(regionName:String, coordinate : CLLocationCoordinate2D ) {
         
         self.regionName = regionName
-        self.numberOfAttractions = numberOfAttractions
         self.coordinate = coordinate
+        
+        self.attractionList = []
     }
     
     

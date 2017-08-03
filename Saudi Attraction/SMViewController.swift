@@ -87,7 +87,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             
         }*/
         
-        let annotations = attraction.map { attraction -> MKAnnotation in
+       /* let annotations = attraction.map { attraction -> MKAnnotation in
             let annotation = MKPointAnnotation()
             annotation.title = attraction.name
             
@@ -97,16 +97,25 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             annotation.coordinate = CLLocationCoordinate2DMake(attraction.latitude, attraction.longitude)
 //                CLLocationCoordinate2D(latitude: SMAttraction.latitude, longitude: SMAttraction.longitude)
             return annotation
+        }*/
+        
+        let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+            mainMap.addAnnotation(attraction)
+            return attraction
         }
+           
+        
+        //let anno = SMRegionManager.shared.regionList.
+            
+        
+        
         mainMap.addAnnotations(annotations)
-
-
-        
-        
+      
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         prepareSegmentView()
+        
         
         }
    
