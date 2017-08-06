@@ -25,6 +25,8 @@ class SMRegionManager : MKPointAnnotation {
         
         
         regionList.append(makkahRegion)
+        
+        
     }
     
   

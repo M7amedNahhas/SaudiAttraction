@@ -99,17 +99,20 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             return annotation
         }*/
         
+        
+        
         let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
             mainMap.addAnnotation(attraction)
+            
             return attraction
         }
            
-        
-        //let anno = SMRegionManager.shared.regionList.
+         mainMap.addAnnotations(annotations)
+      
             
         
         
-        mainMap.addAnnotations(annotations)
+       
       
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest

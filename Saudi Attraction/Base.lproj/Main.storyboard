@@ -67,10 +67,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ca6-IP-GsN" firstAttribute="trailing" secondItem="h6E-hd-mwr" secondAttribute="trailing" id="3eg-w3-l91"/>
                             <constraint firstItem="DmH-Y8-HbW" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="7we-LM-CMC"/>
                             <constraint firstItem="IO2-bM-nAw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DIx-S3-8sg"/>
+                            <constraint firstItem="ca6-IP-GsN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="H4c-7r-cSU"/>
+                            <constraint firstAttribute="trailing" secondItem="ca6-IP-GsN" secondAttribute="trailing" id="NAx-Oq-oa1"/>
+                            <constraint firstItem="ca6-IP-GsN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Sje-qk-ggK"/>
+                            <constraint firstAttribute="bottom" secondItem="ca6-IP-GsN" secondAttribute="bottom" constant="543" id="YgU-n6-aBF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IO2-bM-nAw" secondAttribute="bottom" id="ZYy-XT-eAZ"/>
+                            <constraint firstItem="ca6-IP-GsN" firstAttribute="top" secondItem="h6E-hd-mwr" secondAttribute="bottom" id="bYh-ih-XHi"/>
                             <constraint firstItem="DmH-Y8-HbW" firstAttribute="trailing" secondItem="IO2-bM-nAw" secondAttribute="trailing" id="hrK-GQ-Dv5"/>
+                            <constraint firstItem="ca6-IP-GsN" firstAttribute="leading" secondItem="h6E-hd-mwr" secondAttribute="leading" id="iEA-IN-yYy"/>
                             <constraint firstAttribute="trailing" secondItem="IO2-bM-nAw" secondAttribute="trailing" id="mmn-RH-UTf"/>
                         </constraints>
                     </view>

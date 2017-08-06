@@ -8,20 +8,19 @@
 
 import Foundation
 import MapKit
+
 import CoreLocation
 
 class SMRegion : NSObject , MKAnnotation {
     
     let regionName: String?
     let coordinate : CLLocationCoordinate2D
-    
     var attractionList : [SMAttraction]?
     
     init(regionName:String, coordinate : CLLocationCoordinate2D ) {
         
         self.regionName = regionName
         self.coordinate = coordinate
-        
         self.attractionList = []
     }
     
