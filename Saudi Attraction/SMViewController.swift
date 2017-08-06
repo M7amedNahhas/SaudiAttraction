@@ -101,14 +101,34 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
         
-        let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
-            mainMap.addAnnotation(attraction)
-            
-            return attraction
+        let attractionAnnotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+           
+            let annotation = MKPointAnnotation()
+            annotation.title = attraction.name
+            annotation.coordinate = CLLocationCoordinate2D(latitude: attraction.latitude, longitude: attraction.longitude)
+            return annotation
+           
         }
            
-         mainMap.addAnnotations(annotations)
-      
+         mainMap.addAnnotations(attractionAnnotations)
+   
+        
+        
+        
+        
+        
+        
+        /*
+ 
+         let annotations = locations.map { location -> MKAnnotation in
+         let annotation = MKPointAnnotation()
+         annotation.title = location.title
+         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+         return annotation
+         }
+         mapView.addAnnotations(annotations)
+         
+         */
             
         
         
