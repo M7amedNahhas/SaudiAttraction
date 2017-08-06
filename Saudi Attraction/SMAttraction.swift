@@ -21,6 +21,8 @@ class SMAttraction: NSObject , MKAnnotation{
     private var _description: String?
     private var _info: String?
     private var _image : UIImage?
+    let details = MKPointAnnotation()
+    
     
     let coordinate : CLLocationCoordinate2D
     
@@ -43,6 +45,7 @@ class SMAttraction: NSObject , MKAnnotation{
     }
 
     var name: String {
+        _name = details.title
         return _name!
     
     }
