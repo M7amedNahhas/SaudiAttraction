@@ -12,7 +12,7 @@ import CoreLocation
 import MapKit
 
 
-class SMAttraction: NSObject , MKAnnotation{
+class SMAttraction: MKPointAnnotation{
     
     private var _name: String?
     private var _latitude: Double
@@ -21,10 +21,16 @@ class SMAttraction: NSObject , MKAnnotation{
     private var _description: String?
     private var _info: String?
     private var _image : UIImage?
-    let details = MKPointAnnotation()
+   // let details = MKPointAnnotation()
     
     
-    let coordinate : CLLocationCoordinate2D
+    func setAnnotation(){
+        self.coordinate = CLLocationCoordinate2DMake(_latitude, _longitude)
+        self.title = name
+        self.subtitle = SMInfo
+    }
+    
+   // let coordinate : CLLocationCoordinate2D
     
    /* var type : String {
         return _type!
@@ -38,6 +44,7 @@ class SMAttraction: NSObject , MKAnnotation{
         return _image!
         
     }*/
+    
 
     var SMInfo : String {
         return _info!
@@ -45,7 +52,7 @@ class SMAttraction: NSObject , MKAnnotation{
     }
 
     var name: String {
-        _name = details.title
+        
         return _name!
     
     }
@@ -64,7 +71,12 @@ class SMAttraction: NSObject , MKAnnotation{
         self._longitude = longitude
         self._info = info
         
-        self.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+        
+        
+        
+       // self.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+       // self.title = name
+        
        /*
          self._type = type
         self._description = description

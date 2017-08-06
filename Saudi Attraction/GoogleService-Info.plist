@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>267740041258-i7tuqhnihbdbjktntbedug9r2v5l7ij1.apps.googleusercontent.com</string>
+	<string>52155894755-3176r5ujivbi0ogg2f7pdbv11ovemet5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.267740041258-i7tuqhnihbdbjktntbedug9r2v5l7ij1</string>
+	<string>com.googleusercontent.apps.52155894755-3176r5ujivbi0ogg2f7pdbv11ovemet5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBBXEl9qGdxnd38zYOpjxmYt-5GJI4WKC8</string>
+	<string>AIzaSyAEa-vXC57I-D1_cDq2-A7daEOik9zyYyw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>267740041258</string>
+	<string>52155894755</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ToDoList.Test</string>
+	<string>com.SaudiAttraction.ios</string>
 	<key>PROJECT_ID</key>
-	<string>todolist-2b63c</string>
+	<string>saudiattraction</string>
 	<key>STORAGE_BUCKET</key>
-	<string>todolist-2b63c.appspot.com</string>
+	<string>saudiattraction.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:267740041258:ios:9dda2859f434a8d1</string>
+	<string>1:52155894755:ios:e743b8e8d5fddf72</string>
 	<key>DATABASE_URL</key>
-	<string>https://todolist-2b63c.firebaseio.com</string>
+	<string>https://saudiattraction.firebaseio.com</string>
 </dict>
 </plist>

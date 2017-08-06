@@ -71,18 +71,28 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
         
-        let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
-            
-            
-            return attraction
+       let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+            attraction.setAnnotation()
+        
+        
+        return attraction
         }
-           
         
-        //let anno = SMRegionManager.shared.regionList.
+        
+        
+        /* let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+            mainMap.addAnnotation(attraction)
+            
+
+            return attraction
+        }*/
+           
+         mainMap.addAnnotations(annotations)
+      
             
         
         
-        mainMap.addAnnotations(annotations)
+       
       
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -128,6 +138,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         imageTextSegment.nl_heightIs(60)
         imageTextSegment.reloadSegments()
     }
+    
+    //searchBar
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
