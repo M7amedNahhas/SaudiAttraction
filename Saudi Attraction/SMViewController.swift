@@ -14,6 +14,9 @@ import CoreLocation
 class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBarDelegate {
    
     let manager = CLLocationManager()
+    var selectedRegion : SMRegion!
+    var mapZoomUpdatedOnce = false
+    
     
     
     
@@ -42,6 +45,11 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
     @IBOutlet weak var mainMap: MKMapView!
     
+    var zoomRect = MKMapRectNull;
+    
+    
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
@@ -59,6 +67,15 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
     }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        guard !mapZoomUpdatedOnce else {
+            return
+        }
+        
+        self.mainMap.showAnnotations(self.mainMap.annotations, animated: true)
+        self.mapZoomUpdatedOnce = true
+    }
 
     
     override func viewDidLoad() {
@@ -67,70 +84,16 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         //show user location
         mainMap.showsUserLocation = true
+        selectedRegion = SMRegionManager.shared.regionList[0]
         
         
-        
-        
-        let regions = SMRegionManager.shared.regionList.map { region -> MKAnnotation in
-            region.setRegionAnnotation()
-            return region
+        let regions = SMRegionManager.shared.regionList.map { regionAnno -> MKAnnotation in
+            regionAnno.setRegionAnnotation()
+            return regionAnno
         }
-        
-        let attractions = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
-            attraction.setAnnotation()
-            return attraction
-        }
-        
-        mainMap.addAnnotations(attractions)
         
         mainMap.addAnnotations(regions)
         
-        
-
-       /* let attractionAnnotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
-           
-            let annotation = MKPointAnnotation()
-            annotation.title = attraction.name
-            annotation.coordinate = CLLocationCoordinate2D(latitude: attraction.latitude, longitude: attraction.longitude)
-            return annotation
-           
-        } */
-
-        
-        /* let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
-            mainMap.addAnnotation(attraction)
-            
-
-            return attraction
-        }*/
-
-           
-        
-        
-
-   
-        
-        
-        
-        
-        
-        
-        /*
- 
-         let annotations = locations.map { location -> MKAnnotation in
-         let annotation = MKPointAnnotation()
-         annotation.title = location.title
-         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-         return annotation
-         }
-         mapView.addAnnotations(annotations)
-         
-         */
-            
-        
-        
-       
-      
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
