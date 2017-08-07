@@ -11,7 +11,7 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBarDelegate {
+class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBarDelegate , MKMapViewDelegate{
    
     let manager = CLLocationManager()
     
@@ -59,6 +59,40 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {return nil}
+        
+        
+        
+        let reuseIdentifier = "pin"
+        
+        var v = mainMap.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        if v == nil {
+            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            
+            v!.canShowCallout = true
+            let calloutButton = UIButton(type: .detailDisclosure)
+            v!.rightCalloutAccessoryView = calloutButton
+            v!.sizeToFit()
+            
+            v!.image = UIImage(named:"map_pointer_small")
+            
+        }
+        else {
+            v!.annotation = annotation
+        }
+        return v
+    }
+    
+    
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            // هنا العملية تصير حقت الزر تغيرها على حسب احتياجك
+            
+        }
+    }
 
     
     override func viewDidLoad() {
@@ -71,12 +105,15 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
         
+        
+        
+        
         let regions = SMRegionManager.shared.regionList.map { region -> MKAnnotation in
             region.setRegionAnnotation()
             return region
         }
         
-        let attractions = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+        let attractions = SMRegionManager.shared.regionList[1].attractionList!.map { attraction  -> MKAnnotation in
             attraction.setAnnotation()
             return attraction
         }
