@@ -12,37 +12,44 @@ import CoreLocation
 import MapKit
 
 
-class SMAttraction: NSObject , MKAnnotation{
+class SMAttraction: MKPointAnnotation{
     
     private var _name: String?
     private var _latitude: Double
     private var _longitude: Double
     private var _type: String?
     private var _description: String?
-    private var _info: String?
-    private var _image : UIImage?
+    private var _contactInfo: String?
+    private var _image : [UIImage]?
+   // let details = MKPointAnnotation()
     
-    let coordinate : CLLocationCoordinate2D
     
-   /* var type : String {
-        return _type!
-        
+    func setAnnotation(){
+        self.coordinate = CLLocationCoordinate2DMake(_latitude, _longitude)
+        self.title = name
+        self.subtitle = description
     }
-    var SMDeacription : String {
-        return _description!
-        
-    }
-        var SMImage : UIImage {
-        return _image!
-        
-    }*/
+    
 
-    var SMInfo : String {
-        return _info!
-        
+    func attractionDetails() {
+        self._name = name
+        self._description = description
+        self._contactInfo = contactInfo
+        self._image = images
+    }
+    
+    
+
+    var contactInfo : String {
+        return _contactInfo!
+    }
+    
+    var images : [UIImage]{
+        return self.images
     }
 
     var name: String {
+        
         return _name!
     
     }
@@ -55,17 +62,16 @@ class SMAttraction: NSObject , MKAnnotation{
     }
     
     
-    init(name: String, latitude: Double,longitude: Double/*,type:String,description: String*/,info: String) {
+    init(name: String, latitude: Double, longitude: Double, description: String) {
         self._name = name
         self._latitude = latitude
         self._longitude = longitude
-        self._info = info
-        
-        self.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-       /*
-         self._type = type
         self._description = description
-        */
+        
+        
+        
+        
+       
     }
     
     

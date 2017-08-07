@@ -11,16 +11,41 @@ import MapKit
 
 import CoreLocation
 
-class SMRegion : NSObject , MKAnnotation {
+class SMRegion : MKPointAnnotation {
     
-    let regionName: String?
-    let coordinate : CLLocationCoordinate2D
+    let _regionName: String?
+    private var _latitude: Double
+    private var _longitude: Double
+
+   
     var attractionList : [SMAttraction]?
     
-    init(regionName:String, coordinate : CLLocationCoordinate2D ) {
+    func setRegionAnnotation(){
+        self.coordinate = CLLocationCoordinate2DMake(_latitude, _longitude)
+        self.title = regionName
+            }
+
+    var regionName: String {
         
-        self.regionName = regionName
-        self.coordinate = coordinate
+        return _regionName!
+        
+    }
+    
+    var longitude: Double{
+        return _longitude
+    }
+    var latitude: Double{
+        return _latitude
+    }
+
+
+    
+    
+    init(regionName:String, longitude: Double,latitude: Double ) {
+        
+        self._regionName = regionName
+        self._latitude = latitude
+        self._longitude = longitude
         self.attractionList = []
     }
     

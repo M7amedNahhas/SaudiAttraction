@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -52,7 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>780D26A3FAD15F0249201FF936F016A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB3F3956A3D07B6C873DAD444F5F8FBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5B80060FE8C664DF08841000F41D515</key>
 		<dict>
 			<key>primary</key>
 			<true/>

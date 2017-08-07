@@ -15,15 +15,6 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
    
     let manager = CLLocationManager()
     
-    //Attraction List 
-    let attraction: [SMAttraction] = [
-        SMAttraction(name: "Makkah Mall", latitude: 21.390664 , longitude:39.883875, info: "open from 8AM to 12AM" ),
-        SMAttraction(name: "AL-Haram", latitude: 21.422871, longitude: 39.825735, info: "all the time"),
-        SMAttraction(name: "مسجد نصير", latitude: 21.399456, longitude: 39.781566, info: "in praier time"),
-        SMAttraction(name: "al- hjaz mall", latitude: 21.423755, longitude: 39.782017, info: "from 8PM to 12AM")
-    
-    
-    ]
     
     
     @IBOutlet weak var Segment: NLSegmentControl!
@@ -79,38 +70,44 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
         
-        /*for SMAttraction in attraction{
-            let annotation = MKPointAnnotation()
-            annotation.title = SMAttraction.SMName
-            annotation.coordinate = CLLocationCoordinate2D(latitude: SMAttraction.latitude, longitude: SMAttraction.longitude)
-            mainMap.addAnnotation(annotation)
-            
-        }*/
         
-       /* let annotations = attraction.map { attraction -> MKAnnotation in
-            let annotation = MKPointAnnotation()
-            annotation.title = attraction.name
-            
-            
-            print(" This is PIN of \(attraction.name) where location LAT \(attraction.latitude) & Long \(attraction.longitude)")
-            
-            annotation.coordinate = CLLocationCoordinate2DMake(attraction.latitude, attraction.longitude)
-//                CLLocationCoordinate2D(latitude: SMAttraction.latitude, longitude: SMAttraction.longitude)
-            return annotation
-        }*/
+        let regions = SMRegionManager.shared.regionList.map { region -> MKAnnotation in
+            region.setRegionAnnotation()
+            return region
+        }
+        
+        let attractions = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+            attraction.setAnnotation()
+            return attraction
+        }
+        
+        mainMap.addAnnotations(attractions)
+        
+        mainMap.addAnnotations(regions)
         
         
-        
-        let attractionAnnotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+
+       /* let attractionAnnotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
            
             let annotation = MKPointAnnotation()
             annotation.title = attraction.name
             annotation.coordinate = CLLocationCoordinate2D(latitude: attraction.latitude, longitude: attraction.longitude)
             return annotation
            
-        }
+        } */
+
+        
+        /* let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
+            mainMap.addAnnotation(attraction)
+            
+
+            return attraction
+        }*/
+
            
-         mainMap.addAnnotations(attractionAnnotations)
+        
+        
+
    
         
         
@@ -178,6 +175,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         imageTextSegment.nl_heightIs(60)
         imageTextSegment.reloadSegments()
     }
+    
+    //searchBar
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
@@ -193,9 +192,9 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 anno.title = self.searchBarMap.text!
                 
                 let span = MKCoordinateSpanMake(0.1, 0.1)
-                let region = MKCoordinateRegion(center: anno.coordinate, span: span)
+                let regionA = MKCoordinateRegion(center: anno.coordinate, span: span)
                 
-                self.mainMap.setRegion(region, animated: true)
+                self.mainMap.setRegion(regionA, animated: true)
                 
                 self.mainMap.selectAnnotation(anno, animated: true)
                 

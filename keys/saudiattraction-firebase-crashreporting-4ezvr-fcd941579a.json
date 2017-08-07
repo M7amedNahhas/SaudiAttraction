@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "saudiattraction",
+  "private_key_id": "fcd941579a709e741dab7aed24f9738eded0f536",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEDA15g4ZQotuC\nY9lAyA/FsToDskkoHPuqpAQI6aX5PhSW8lTx8UvUn4cYjfiIj4RgU5XmgVQ5ycEo\n7ie/BaVcuEICCAAtI8u58635zTmVS8k0S6U2Ek9tGDfylR36bH/RqqGtqzL/f8mk\naRBcV+6fAcVrgef9IkxVEYtZ0/v5Qfrt5GWPKlU0DSLP+JP/NwbVwEm2ei9aASmU\nyawSIr/Wiui5OW0YSqsFQF0gaEH0zTZIfR64gbYNE5QruWywefILye93XYn4BJqA\n5T74/DLoHII40YQhHbvXj9m67Wh+Xd8T0Iu2HlISiijav1R7S3pF8DaCRP82C30a\n7QT1TACRAgMBAAECggEACF3e+wMyNFby88peRKMVIJHVoOqXBS4mzmuasXpZPJJv\nRK7kZwFDhCLnxtQ+RFkNpE0aPgthxGftcAP+mxV7BG09Ae2vUOiGGAeZMpU/18oz\ndMwlVEdX75cOQjJ7eaBvnGDXbrw6RwhVhchRwVh5BP0Jch20lctvgweRO9JDHr95\nvfVIzRXHjf1sUU+2YtJE5XKzeloPOAearSBlVB81okX69oy4xI5ACJfqSykBcOBm\nSZI+WMfzUyCEGqtyZZcKi+XmF01Wy+o2aNKAGX97JJGjanW1Jx/Pe8Z3irMKmkTj\nY4gBPVx/hH2aGFHoI2wG9xSc/ieUlzdJVQvV8+9KnQKBgQD/zxuDNWFgAnd/2bHX\nYyFAGpycVINXgW/hOoZmh6uROKd0VFQZ4txSr4XRXDfTYJ/+aouCHFZHRPsruYyr\nt9u86BZ8HJ6Uz2GyD7WM1wK8atkVjrtFXtq9/QgPeN0G7LpDVggvVRE9nXZJY6Xv\n/Akb3PWMJ8L0yWWtmx0OjFoFlQKBgQDEMYXeW7cJJyb29PYuM8IFstbkEwJUzFte\nRJwHWkmAM5T6I38Un30x9dNr+dQZnq3RNjqJo2lR3dNEVAqu+3YJXQyUDNpsNSMM\nxq7YSwC0Iyw5IcvGlLbEMpIqNhyeUOP6KUdDr6FSoybXl93Vagwj7Z70NV7wjEB3\nxqvU1vTYDQKBgQCOczd/7mbmPxlqkcCuD57BgtA5Yfqt7P9vbdbQG7bXrLPbXOZk\nb+d/CA0909umkwUleRFtB/inwWsZIz+JlF4CKT/0Jz/L4Fwn+wV/g3Abmmh+z7fL\nXpHzAIfPjd+Pbp4exzbRnM54AEqRfbM3G6O652W5gZ7YD5rWfS1GH7Q1rQKBgQCw\ny3O34Wv6Woa5ShtBnTB9FCCjXCHgqlq3gxobYhgT5+ea1TviKKqXx88iYPnpsF0v\nxy9O8quosz17OER8VGuUmn4IN+DoW6XfEHdkv4m9ymhCf5rysvZTrMKcOTDm1Tvr\nJSFr9CtqnU0WQGsNsseH5Mw1gpawK6K4jJYxcRcoTQKBgDdXNsi7ggIgQZXShPGw\n9TtdWiZ31HSkqDZfpoAoNy0wFc1z/60mvtcEj1cXGC48ziyg/lj8PmGM0hiQhgS7\nlJtl7cbBKUQhrD1RdFyyLaaPy/fybGFA7qNqpRqj+c39zbBVYP2VQAV79L35PQFm\nHOlI9B19AWbNyKKZnGaCroHx\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-crashreporting-4ezvr@saudiattraction.iam.gserviceaccount.com",
+  "client_id": "104080379279789938905",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-crashreporting-4ezvr%40saudiattraction.iam.gserviceaccount.com"
+}

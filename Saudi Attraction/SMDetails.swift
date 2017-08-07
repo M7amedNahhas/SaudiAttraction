@@ -13,7 +13,7 @@ class SMDetails{
     var _SMType: String?
     var _SMDescription: String?
     var _SMInfo: String?
-    var _SMImage : UIImage?
+    var _SMImage : [UIImage]?
     
     var SMType : String {
         return _SMType!
@@ -27,12 +27,12 @@ class SMDetails{
         return _SMInfo!
         
     }
-    var SMImage : UIImage {
+    var SMImage : [UIImage] {
         return _SMImage!
         
     }
     
-    init(SMType: String, SMDescription: String/*, SMInfo: String, SMImage: UIImage*/) {
+    init(SMType: String, SMDescription: String, SMInfo: String, SMImage: [UIImage]) {
         self._SMInfo = SMInfo
         self._SMDescription = SMDescription
         self._SMType = SMType
