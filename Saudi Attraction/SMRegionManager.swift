@@ -20,7 +20,12 @@ class SMRegionManager : MKPointAnnotation {
   
         regionList = []
         
-        let makkahRegion = SMRegion(regionName: "Makkah", longitude: 21.3890824, latitude: 39.85791180000001)
+        
+        
+        
+        let makkahRegion = SMRegion(regionName: "Makkah", longitude:39.85791180000001 , latitude:21.3890824 )
+        
+        
 
         makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "aASDasd"))
         makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
@@ -28,12 +33,15 @@ class SMRegionManager : MKPointAnnotation {
         
 
         
-        let jeddahRegion = SMRegion(regionName: "Jeddah", longitude: 21.2854067, latitude: 21.2854067)
+        let jeddahRegion = SMRegion(regionName: "Jeddah", longitude: 39.23755069999993, latitude: 21.2854067)
+        
+        let taifRegion = SMRegion(regionName: "Taif", longitude: 40.410118103027344, latitude: 21.267060062412437)
         
         jeddahRegion.attractionList?.append(SMAttraction(name: "Red Sea Mall", latitude: 21.62759051831776, longitude: 39.11081314086914, description: "Shopping mall"))
         
         regionList.append(jeddahRegion)
         regionList.append(makkahRegion)
+        regionList.append(taifRegion)
         
         
     }

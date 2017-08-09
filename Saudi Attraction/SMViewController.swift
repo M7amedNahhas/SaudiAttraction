@@ -11,10 +11,11 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBarDelegate {
+class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBarDelegate , MKMapViewDelegate{
    
     let manager = CLLocationManager()
-    var selectedRegion : SMRegion!
+    var selectedRegion : SMRegion?
+    var selectedAttractions : [SMAttraction] = []
     var mapZoomUpdatedOnce = false
     
     
@@ -62,21 +63,94 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
         self.mainMap.showsUserLocation = true
-        
-        
-        
-        
+   
     }
     
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        guard !mapZoomUpdatedOnce else {
-            return
-        }
+    
+    
+    
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {return nil}
         
-        self.mainMap.showAnnotations(self.mainMap.annotations, animated: true)
-        self.mapZoomUpdatedOnce = true
+        
+        
+        let reuseIdentifier = "pin"
+        
+        var v = mainMap.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        if v == nil {
+            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            
+            v!.canShowCallout = true
+            let calloutButton = UIButton(type: .detailDisclosure)
+            v!.rightCalloutAccessoryView = calloutButton
+            v!.sizeToFit()
+            
+            v!.image = UIImage(named:"map_pointer_small")
+            
+            
+        }
+        else {
+            v!.annotation = annotation
+        }
+        return v
+    }
+    
+    
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            
+            
+            if let region = view.annotation as? SMRegion {
+                print(region.regionName)
+                
+                
+                let pinToZoomOn = view.annotation
+                let span = MKCoordinateSpanMake(0.2, 0.2)
+                let regionRect = MKCoordinateRegion(center: pinToZoomOn!.coordinate, span: span)
+                mainMap.setRegion(regionRect, animated: true)
+                
+                
+                selectedRegion = region
+                
+                drawAssignedPins()
+                
+            }else if let attraction = view.annotation as? SMAttraction {
+                print(attraction.name)
+            }
+            
+            
+        }
+
     }
 
+    
+    func drawAssignedPins(){
+        
+      
+      
+            // display all regions
+        if let region = selectedRegion {
+            // I will remove all items from the map & then put this region's attractions
+            mainMap.removeAnnotations(mainMap.annotations)
+            
+            let attractions = region.attractionList?.map { attractionAnno -> MKAnnotation in
+                
+                attractionAnno.setAnnotation()
+                return attractionAnno
+            }
+            mainMap.addAnnotations(attractions ?? [])
+            
+    } else {
+            mainMap.removeAnnotations(mainMap.annotations)
+            let regions = SMRegionManager.shared.regionList.map { regionAnno -> MKAnnotation in
+                regionAnno.setRegionAnnotation()
+                return regionAnno
+            }
+            mainMap.addAnnotations(regions)
+        }
+}
     
     override func viewDidLoad() {
         
@@ -84,21 +158,14 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         //show user location
         mainMap.showsUserLocation = true
-        selectedRegion = SMRegionManager.shared.regionList[0]
-        
-        
-        let regions = SMRegionManager.shared.regionList.map { regionAnno -> MKAnnotation in
-            regionAnno.setRegionAnnotation()
-            return regionAnno
-        }
-        
-        mainMap.addAnnotations(regions)
-        
+
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         prepareSegmentView()
+
         
+        drawAssignedPins()
         
         }
    
@@ -154,7 +221,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 anno.coordinate = (placemark?.location?.coordinate)!
                 anno.title = self.searchBarMap.text!
                 
-                let span = MKCoordinateSpanMake(0.1, 0.1)
+                let span = MKCoordinateSpanMake(0.2, 0.2)
                 let regionA = MKCoordinateRegion(center: anno.coordinate, span: span)
                 
                 self.mainMap.setRegion(regionA, animated: true)
