@@ -41,7 +41,7 @@ class SMRegion : MKPointAnnotation {
 
     
     
-    init(regionName:String, longitude: Double,latitude: Double ) {
+    init(regionName:String, latitude: Double,longitude: Double ) {
         
         self._regionName = regionName
         self._latitude = latitude

@@ -15,6 +15,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
    
     let manager = CLLocationManager()
     
+    var ref = DatabaseReference.init()
     
     
     @IBOutlet weak var Segment: NLSegmentControl!
@@ -30,13 +31,20 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     @IBAction func currentLocationActionBT(_ sender: UIButton) {
         
+        
+        
         //manager.startUpdatingLocation()
         let userLocation = mainMap.userLocation
         let region = MKCoordinateRegionMakeWithDistance((userLocation.location?.coordinate)!,2000 , 2000)
         mainMap.setRegion(region, animated: true)
         
+        self.ref.child("test").setValue("hello ma friends")
+        print("hello")
+        
+        
     }
     
+        
    
     
         
@@ -93,6 +101,12 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             
         }
     }
+    
+    @IBAction func refresh(_ sender: UIButton) {
+        
+    }
+    
+    
 
     
     override func viewDidLoad() {
@@ -102,7 +116,11 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         //show user location
         mainMap.showsUserLocation = true
         
+        //database 
+        self.ref = Database.database().reference()
         
+        
+        SMRegionManager.shared.loedManager()
         
         
         
@@ -113,56 +131,19 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             return region
         }
         
-        let attractions = SMRegionManager.shared.regionList[1].attractionList!.map { attraction  -> MKAnnotation in
+        let attractions = SMRegionManager.shared.testList.map { attraction  -> MKAnnotation in
             attraction.setAnnotation()
+            
+            
             return attraction
         }
+        
         
         mainMap.addAnnotations(attractions)
         
         mainMap.addAnnotations(regions)
         
         
-
-       /* let attractionAnnotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
-           
-            let annotation = MKPointAnnotation()
-            annotation.title = attraction.name
-            annotation.coordinate = CLLocationCoordinate2D(latitude: attraction.latitude, longitude: attraction.longitude)
-            return annotation
-           
-        } */
-
-        
-        /* let annotations = SMRegionManager.shared.regionList[0].attractionList!.map { attraction  -> MKAnnotation in
-            mainMap.addAnnotation(attraction)
-            
-
-            return attraction
-        }*/
-
-           
-        
-        
-
-   
-        
-        
-        
-        
-        
-        
-        /*
- 
-         let annotations = locations.map { location -> MKAnnotation in
-         let annotation = MKPointAnnotation()
-         annotation.title = location.title
-         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-         return annotation
-         }
-         mapView.addAnnotations(annotations)
-         
-         */
             
         
         
@@ -175,7 +156,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
         }
-   
+    
+
     
     func prepareSegmentView(){
     
