@@ -30,7 +30,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     
     
-    
+
     
     
     @IBAction func currentLocationActionBT(_ sender: UIButton) {
@@ -94,7 +94,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             v!.rightCalloutAccessoryView = calloutButton
             v!.sizeToFit()
             
-            v!.image = UIImage(named:"map_pointer_small")
+            v!.image = UIImage(named:"mapPin")
             
             
         }
@@ -103,6 +103,10 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         }
         return v
     }
+    
+
+    
+    
     
     
     
@@ -121,8 +125,12 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 
                 
                 selectedRegion = region
-                
-                drawAssignedPins()
+
+                SMRegionManager.shared.loadAttraction(regionID: selectedRegion!.id){ [unowned self] attractionListItems in
+                    self.selectedRegion?.attractionList?.removeAll()
+                    self.selectedRegion?.attractionList = attractionListItems
+                    self.drawAssignedPins()
+                }
                 
             }else if let attraction = view.annotation as? SMAttraction {
                 print(attraction.name)
@@ -289,6 +297,37 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
     }
     
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("Zoom Index  \(mapView.region.span.longitudeDelta)")
+        
+        if mapView.region.span.longitudeDelta > 2 {
+            selectedRegion = nil
+            drawAssignedPins()
+        }else if (mapView.region.span.longitudeDelta < 4 && selectedRegion == nil){
+            // I need to set the selected Region to the nearest region to the map center
+           
+            
+            var minimum = Int.max
+            
+            
+            
+            for region in SMRegionManager.shared.regionList// over all regions
+            {
+                let mapCenter = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+                let regionCenter = CLLocation(latitude: region.latitude, longitude: region.longitude)
+                
+                let distanceInMeters = mapCenter.distance(from: regionCenter) // result is in meters
+                if (Int(distanceInMeters) < minimum) {
+                    minimum = Int(distanceInMeters)
+                    selectedRegion = region
+                }
+            
+            }
+            drawAssignedPins()
+        }
+        
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -296,5 +335,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     }
 
 
-}
 
+
+
+}

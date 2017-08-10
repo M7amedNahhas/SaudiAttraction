@@ -13,6 +13,7 @@ import CoreLocation
 
 class SMRegion : MKPointAnnotation {
     
+    var id : String
     let _regionName: String?
     private var _latitude: Double
     private var _longitude: Double
@@ -42,8 +43,9 @@ class SMRegion : MKPointAnnotation {
 
     
     
-    init(regionName:String, latitude: Double,longitude: Double ) {
+    init(regionID: String, regionName:String, latitude: Double,longitude: Double ) {
         
+        self.id = regionID
         self._regionName = regionName
         self._latitude = latitude
         self._longitude = longitude
