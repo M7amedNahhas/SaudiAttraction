@@ -37,6 +37,7 @@
 		62F966F11F3201BB00567A16 /* All.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EC1F3201BB00567A16 /* All.png */; };
 		C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515A1F31C61100F5D338 /* SMRegionManager.swift */; };
 		C09C515D1F3C837900F5D338 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515C1F3C837900F5D338 /* DetailsViewController.swift */; };
+		C09C515F1F3CA0A000F5D338 /* Alrajhi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */; };
 		E503B3E7E3064D356232853D /* Pods_Saudi_AttractionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */; };
 		E99E33C52A749475660921F1 /* Pods_Saudi_Attraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_Attraction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09C515A1F31C61100F5D338 /* SMRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegionManager.swift; sourceTree = "<group>"; };
 		C09C515C1F3C837900F5D338 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Alrajhi.jpg; sourceTree = "<group>"; };
 		C47B50EA33B56A8F9AD40F84 /* Pods_Saudi_AttractionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -256,6 +258,7 @@
 				62F966E81F3201BB00567A16 /* Historical.png */,
 				62F966E91F3201BB00567A16 /* Park.png */,
 				62F966EA1F3201BB00567A16 /* Mall.png */,
+				C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */,
 				62F966EB1F3201BB00567A16 /* Religious.png */,
 				62F966EC1F3201BB00567A16 /* All.png */,
 			);
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				623895971F37365F00CDA32A /* GoogleService-Info.plist in Resources */,
+				C09C515F1F3CA0A000F5D338 /* Alrajhi.jpg in Resources */,
 				62F966EE1F3201BB00567A16 /* Park.png in Resources */,
 				62F966F01F3201BB00567A16 /* Religious.png in Resources */,
 				62F65D051F28B10B00914FB5 /* LaunchScreen.storyboard in Resources */,

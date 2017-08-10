@@ -32,15 +32,15 @@ class SMAttraction: MKPointAnnotation{
     }
     
 
-    func attractionDetails() {
-        self._name = name
-        self._description = description
-        self._contactInfo = contactInfo
-        self._image = images
+    
+    var type : String {
+        return _type!
     }
-    
-    
-  
+
+    override var description: String  {
+        return _description!
+    }
+
 
     var contactInfo : String {
         return _contactInfo!
@@ -64,19 +64,18 @@ class SMAttraction: MKPointAnnotation{
     }
     
     
-    init(name: String, latitude: Double, longitude: Double, description: String) {
+    init(name: String, latitude: Double, longitude: Double, description: String , type : String , contactInfo : String , images : [UIImage]) {
         self._name = name
         self._latitude = latitude
         self._longitude = longitude
         self._description = description
-        
-        
-        
-        
+        self._type = type
+        self._contactInfo = contactInfo
+        self._image = images
+ 
        
     }
-    
-    
+   
     
         
     

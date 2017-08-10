@@ -25,8 +25,8 @@ class SMRegionManager : MKPointAnnotation {
         
         let makkahRegion = SMRegion(regionName: "Makkah", longitude:39.85791180000001 , latitude:21.3890824 )
         
-        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "aASDasd"))
-        makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
+        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "Masjid Aishah Alrajhi in Alnseem", type: "Religious", contactInfo: "-", images: []))
+    /*    makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
         makkahRegion.attractionList?.append(SMAttraction(name: "Makkah mall", latitude: 21.391079, longitude: 39.884589, description: "mall of makkah"))
         
 
@@ -50,13 +50,14 @@ class SMRegionManager : MKPointAnnotation {
         madinahRegion.attractionList?.append(SMAttraction(name: "جبل أحد", latitude: 24.5217701, longitude: 39.62600580000003, description: " "))
         madinahRegion.attractionList?.append(SMAttraction(name: "Alnoor Mall", latitude: 24.4961496, longitude: 39.59560550000003, description: "Shopping mall"))
 
+             regionList.append(jeddahRegion)
+             regionList.append(riyadhRegion)
+             regionList.append(madinahRegion)
+
+ 
+ */
         
-        
-        regionList.append(jeddahRegion)
-        regionList.append(makkahRegion)
-        regionList.append(riyadhRegion)
-        regionList.append(madinahRegion)
-        
+              regionList.append(makkahRegion)
     }
     
  

@@ -17,6 +17,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     var selectedRegion : SMRegion?
     var selectedAttractions : [SMAttraction] = []
     var mapZoomUpdatedOnce = false
+    var selectedAttraction : SMAttraction?
     
     
     
@@ -122,6 +123,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 
             }else if let attraction = view.annotation as? SMAttraction {
                 print(attraction.name)
+                self.selectedAttraction = attraction
+                self.performSegue(withIdentifier: "segueToAttractionDetail", sender: nil)
             }
             
             
@@ -281,6 +284,17 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         // Dispose of any resources that can be recreated.
     }
 
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     if ( segue.identifier == "segueToAttractionDetail"){
+     if let detailsViewController = segue.destination as? DetailsViewController{
+        
+            detailsViewController.attraction = selectedAttraction
+                
+            }
+        }
+    }
+ 
 
 
 
