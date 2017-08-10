@@ -22,6 +22,7 @@ class SMRegion : MKPointAnnotation {
     
     func setRegionAnnotation(){
         self.coordinate = CLLocationCoordinate2DMake(_latitude, _longitude)
+
         self.title = regionName
             }
 

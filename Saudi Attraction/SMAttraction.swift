@@ -24,10 +24,11 @@ class SMAttraction: MKPointAnnotation{
    // let details = MKPointAnnotation()
     
     
-    func setAnnotation(){
+    func setAnnotation()   {
         self.coordinate = CLLocationCoordinate2DMake(_latitude, _longitude)
         self.title = name
         self.subtitle = description
+  
     }
     
 
@@ -39,6 +40,7 @@ class SMAttraction: MKPointAnnotation{
     }
     
     
+  
 
     var contactInfo : String {
         return _contactInfo!

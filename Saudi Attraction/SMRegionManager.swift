@@ -12,97 +12,95 @@ import Firebase
 
 class SMRegionManager : MKPointAnnotation {
     
-    var regionList : [SMRegion]
+    var regionList : [SMRegion] = []
     var ref: DatabaseReference!
     var testList :[SMAttraction] = []
- 
+    
+    
+    
     
     private override init (){
         
   
         regionList = []
         
-        let makkahRegion = SMRegion(regionName: "Makkah", latitude:21.3890824, longitude: 39.85791180000001)
-
-        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "aASDasd"))
-        makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
-        makkahRegion.attractionList?.append(SMAttraction(name: "Makkah mall", latitude: 21.391079, longitude: 39.884589, description: "mall of makkah"))
-        
 
         
-        let jeddahRegion = SMRegion(regionName: "Jeddah", latitude: 21.2854067, longitude: 21.2854067)
-        
-        jeddahRegion.attractionList?.append(SMAttraction(name: "Red Sea Mall", latitude: 21.62759051831776, longitude: 39.11081314086914, description: "Shopping mall"))
-        
-        regionList.append(jeddahRegion)
-        regionList.append(makkahRegion)
         
         
-    }
-    func loedManager(){
+//        let makkahRegion = SMRegion(regionName: "Makkah", latitude:21.3890824 , longitude:39.8579118 )
+//        
+//        
+//
+//
+//        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "aASDasd"))
+//        makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
+//        makkahRegion.attractionList?.append(SMAttraction(name: "Makkah mall", latitude: 21.391079, longitude: 39.884589, description: "mall of makkah"))
+//        
+//
+//
+//        let jeddahRegion = SMRegion(regionName: "Jeddah", latitude: 21.2854067, longitude: 39.2375506)
+//        
+       let taifRegion = SMRegion(regionName: "Taif", latitude: 21.267060062412437, longitude: 40.410118103027344)
+//
+//        jeddahRegion.attractionList?.append(SMAttraction(name: "Red Sea Mall", latitude: 21.62759051831776, longitude: 39.11081314086914, description: "Shopping mall"))
+//        
+//        regionList.append(jeddahRegion)
+//        regionList.append(makkahRegion)
+        regionList.append(taifRegion)
+//        
+//        
+   }
+    func loedCity(){
         ref = Database.database().reference()
-        ref.child("Region").observe(.value, with: {(snapshot)in
+        ref.child("SA/citys").queryOrdered(byChild: "CityName").observe(.value, with: {(snapshot)in
             
-            if let dictionary = snapshot.value as? [String: Any]{
+            
+            if let arry = snapshot.value as? [[String: Any]]{
                 
-                let name = dictionary["atname"] as? String ?? "NoName"
-                let lati = dictionary["atlati"] as? Double ?? 0.0
-                let long = dictionary["atlong"] as? Double ?? 0.0
-                let desc = dictionary["atdesc"] as? String ?? "NoDescription"
+                for regionDic in arry{
+                let CityName = regionDic["CityName"] as? String ?? "NoCityName"
+                let CityLat = regionDic["CityLat"] as? Double ?? 0.0
+                let CityLong = regionDic["CityLong"] as? Double ?? 0.0
                 
-                self.testList.append(SMAttraction(name: name, latitude: lati, longitude: long, description: desc))
+                self.regionList.append(SMRegion(regionName: CityName, latitude: CityLat, longitude: CityLong))
+                }
+               
+                print("My region",self.regionList)
+     
+            }
+   
+        }
+  )}
+    
+    func loadAttraction(){
+        ref = Database.database().reference()
+        ref.child("SA/Attraction").queryOrdered(byChild: "atName").observe(.value, with: {(snapshot)in
+            
+            if let array = snapshot.value as? [[String: Any]]{
+                for attractionDic in array {
+                    let atName = attractionDic["atName"] as? String ?? "NoAtName"
+                    let atLat = attractionDic["atLat"] as? Double ?? 0.0
+                    let atlong = attractionDic["atLong"] as? Double ?? 0.0
+                    let atDesc = attractionDic["atDesc"] as? String ?? "NoDescription"
+                    
+                    self.testList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc))
+                    
                 
-                print( "This is the location Name: \(name), Lat: \(lati) , Long: \(long) & the description is : \(desc)" )
-                print("new at:",self.testList.count)
+                
+                
+                
+                }
+                
             }
             
             
             
             
-         
-            
-        }
-  )}
+        })
     
-//    func setCitys(cityID: String, cityData: [String : AnyObject]){
-//        var atName:String!
-//        var atLatitude:Double!
-//        var atLongitude:Double!
-//        var atdesc:String!
-//        
-//        if let atName1 = cityData["atName"] as? String{
-//            atName = atName1
-//        }
-//        else{
-//            atName = "no_data"
-//        
-//        }
-//        if let atLatitude1 = cityData["atLatitude"] as? Double{
-//            atLatitude = atLatitude1
-//        }
-//        else{
-//            atLatitude = 0.0
-//        
-//        }
-//        if let atLongitude1 = cityData["atLongitude"] as? Double{
-//            atLongitude = atLongitude1
-//        }
-//        else{
-//            atLongitude = 0.0
-//        
-//        }
-//        if let atdesc1 = cityData["atdesc"] as? String{
-//            atdesc = atdesc1
-//        }
-//        else{
-//            atdesc = "no_data"
-//            
-//        }
-//
-//        self.testList.append(SMAttraction(name: atName, latitude: atLatitude, longitude: atLongitude, description: atdesc))
-//        
-//        
-//    }
+    }
+
     
 
 
@@ -113,7 +111,7 @@ class SMRegionManager : MKPointAnnotation {
   
     
     
-            
+    
     func setRegionList () -> [SMRegion] {
         return regionList
     }
