@@ -17,6 +17,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     var selectedRegion : SMRegion?
     var selectedAttractions : [SMAttraction] = []
     var mapZoomUpdatedOnce = false
+    var selectedAttraction : SMAttraction?
     
     
     var ref = DatabaseReference.init()
@@ -134,6 +135,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 
             }else if let attraction = view.annotation as? SMAttraction {
                 print(attraction.name)
+                self.selectedAttraction = attraction
+                self.performSegue(withIdentifier: "segueToAttractionDetail", sender: nil)
             }
             
             
@@ -235,8 +238,9 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         let item13 = Category(title: "Religious", image: "Religious", selectedImage: "Religious")
         let item14 = Category(title: "Park", image: "Park", selectedImage: "Park")
         let item15 = Category(title: "Historical", image: "Historical", selectedImage: "Historical")
+        let item16 = Category(title: "Events", image: "calendar", selectedImage: "calendar")
         
-        let imageTextSegment = NLSegmentControl(segments: [item11, item12, item13, item14, item15])
+        let imageTextSegment = NLSegmentControl(segments: [item11, item12, item13, item14, item15,item16])
         
         self.Segment.addSubview(imageTextSegment)
         imageTextSegment.selectionIndicatorColor = UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)
@@ -334,6 +338,17 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         // Dispose of any resources that can be recreated.
     }
 
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     if ( segue.identifier == "segueToAttractionDetail"){
+     if let detailsViewController = segue.destination as? DetailsViewController{
+        
+            detailsViewController.attraction = selectedAttraction
+                
+            }
+        }
+    }
+ 
 
 
 

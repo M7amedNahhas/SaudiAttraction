@@ -23,24 +23,21 @@ class SMRegionManager : MKPointAnnotation {
         
   
         regionList = []
-        
 
         
+      /*
+        let makkahRegion = SMRegion(regionID: "", regionName: "Makkah", latitude:21.3890824 , longitude:39.85791180000001 )
         
-
-//        let makkahRegion = SMRegion(regionName: "Makkah", latitude:21.3890824 , longitude:39.8579118 )
-//        
-//        
-//
-//
-//        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "aASDasd"))
-//        makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
-//        makkahRegion.attractionList?.append(SMAttraction(name: "Makkah mall", latitude: 21.391079, longitude: 39.884589, description: "mall of makkah"))
+        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "Masjid Aishah Alrajhi in Alnseem", type: "Religious", contactInfo: "-", images: []))
+       makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
+        makkahRegion.attractionList?.append(SMAttraction(name: "Makkah mall", latitude: 21.391079, longitude: 39.884589, description: "mall of makkah"))
         
 
 
-//       let jeddahRegion.attractionList?.append(SMAttraction(name: "Red Sea Mall", latitude: 21.62759051831776, longitude: 39.11081314086914, description: "Shopping mall"))
-//        
+        
+        
+
+
         
         
         
@@ -55,6 +52,7 @@ class SMRegionManager : MKPointAnnotation {
         madinahRegion.attractionList?.append(SMAttraction(name: "المسجد النبوي الشريف", latitude: 24.468088137204234, longitude: 39.61051940917969, description: " "))
         madinahRegion.attractionList?.append(SMAttraction(name: "جبل أحد", latitude: 24.5217701, longitude: 39.62600580000003, description: " "))
         madinahRegion.attractionList?.append(SMAttraction(name: "Alnoor Mall", latitude: 24.4961496, longitude: 39.59560550000003, description: "Shopping mall"))
+
         
         
         
@@ -64,6 +62,29 @@ class SMRegionManager : MKPointAnnotation {
         regionList.append(madinahRegion)
       
    }
+         
+            
+            
+            
+        })
+    
+
+
+
+             regionList.append(jeddahRegion)
+             regionList.append(riyadhRegion)
+             regionList.append(madinahRegion)
+             regionList.append(makkahRegion)
+
+ 
+ */
+        
+        
+
+    }
+
+    
+
     func loedCity(){
         ref = Database.database().reference()
         ref.child("SA/citys").queryOrdered(byChild: "CityName").observe(.value, with: {(snapshot)in
@@ -72,20 +93,20 @@ class SMRegionManager : MKPointAnnotation {
             if let arry = snapshot.value as? [[String: Any]]{
                 
                 for regionDic in arry{
-                let CityID = regionDic["id"] as? String ?? "id"
-                let CityName = regionDic["CityName"] as? String ?? "NoCityName"
-                let CityLat = regionDic["CityLat"] as? Double ?? 0.0
-                let CityLong = regionDic["CityLong"] as? Double ?? 0.0
-                
+                    let CityID = regionDic["id"] as? String ?? "id"
+                    let CityName = regionDic["CityName"] as? String ?? "NoCityName"
+                    let CityLat = regionDic["CityLat"] as? Double ?? 0.0
+                    let CityLong = regionDic["CityLong"] as? Double ?? 0.0
+                    
                     self.regionList.append(SMRegion(regionID: CityID, regionName: CityName, latitude: CityLat, longitude: CityLong))
                 }
-               
+                
                 print("My region",self.regionList)
-     
+                
             }
-   
+            
         }
-  )}
+        )}
     
     
     
@@ -99,24 +120,18 @@ class SMRegionManager : MKPointAnnotation {
                     let atName = attractionDic["name"] as? String ?? "NoAtName"
                     let atLat = attractionDic["lat"] as? Double ?? 0.0
                     let atlong = attractionDic["lng"] as? Double ?? 0.0
-                    let atDesc = attractionDic["atDesc"] as? String ?? "NoDescription"
+                    let atDesc = attractionDic["Desc"] as? String ?? "NoDescription"
+                    let atType = attractionDic["Type"] as? String ?? "NOType"
                     
-                    attractionList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc))
+                    attractionList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc, type: atType, contactInfo: "!!", images: []))
                 }
                 
                 completionHandler(attractionList)
             }
-            
-            
-            
-            
         })
-    
-
+        
+        
     }
-
-    
-
 
 
  
