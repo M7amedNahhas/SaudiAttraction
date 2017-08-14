@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
+
 
 
 
@@ -33,6 +36,9 @@ class DetailsViewController: UIViewController {
         atrractionType.text = attraction?.type
         contactInfo.text = attraction?.contactInfo
         attractionImages.image = UIImage(named:"Alrajhi")
+        
+        let downloadURL = NSURL(string: "http://www.lanlinglaurel.com/data/out/83/4652421-gaming-wallpaper.jpg")!
+        attractionImages.af_setImage(withURL: downloadURL as URL)
         
         
 

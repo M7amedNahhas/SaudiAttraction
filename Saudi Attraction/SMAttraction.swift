@@ -20,8 +20,8 @@ class SMAttraction: MKPointAnnotation{
     private var _type: String?
     private var _description: String?
     private var _contactInfo: String?
-    private var _image : [UIImage]?
-   // let details = MKPointAnnotation()
+    private var _image : [String]?
+   
     
     
     func setAnnotation()   {
@@ -46,7 +46,7 @@ class SMAttraction: MKPointAnnotation{
         return _contactInfo!
     }
     
-    var images : [UIImage]{
+    var images : [String]{
         return self.images
     }
 
@@ -64,7 +64,7 @@ class SMAttraction: MKPointAnnotation{
     }
     
     
-    init(name: String, latitude: Double, longitude: Double, description: String , type : String , contactInfo : String , images : [UIImage]) {
+    init(name: String, latitude: Double, longitude: Double, description: String , type : String , contactInfo : String , images : [String]) {
         self._name = name
         self._latitude = latitude
         self._longitude = longitude

@@ -18,6 +18,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     var selectedAttractions : [SMAttraction] = []
     var mapZoomUpdatedOnce = false
     var selectedAttraction : SMAttraction?
+    var typesArray = [Category]()
+    var selectedSegmentType = "All"
     
     
     var ref = DatabaseReference.init()
@@ -43,8 +45,6 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         let region = MKCoordinateRegionMakeWithDistance((userLocation.location?.coordinate)!,2000 , 2000)
         mainMap.setRegion(region, animated: true)
         
-        self.ref.child("test").setValue("hello ma friends")
-        print("hello")
         
         
     }
@@ -98,9 +98,11 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             v!.image = UIImage(named:"mapPin")
             
             
+            
         }
         else {
             v!.annotation = annotation
+            
         }
         return v
     }
@@ -126,12 +128,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 
                 
                 selectedRegion = region
-
-                SMRegionManager.shared.loadAttraction(regionID: selectedRegion!.id){ [unowned self] attractionListItems in
-                    self.selectedRegion?.attractionList?.removeAll()
-                    self.selectedRegion?.attractionList = attractionListItems
-                    self.drawAssignedPins()
-                }
+                
+                loadAttractionBasedOnFilters()
                 
             }else if let attraction = view.annotation as? SMAttraction {
                 print(attraction.name)
@@ -149,11 +147,26 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     }
     
     
+    func  loadAttractionBasedOnFilters()
+    {
+        SMRegionManager.shared.loadAttraction(regionID: selectedRegion!.id, TypeID: selectedSegmentType){ [unowned self] attractionListItems in
+            self.selectedRegion?.attractionList?.removeAll()
+            self.selectedRegion?.attractionList = attractionListItems
+            self.drawAssignedPins()
+        }
+    }
+    
 
     
     func drawAssignedPins(){
         
-      
+        func animation(){
+            UIView.animate(withDuration: 2) {
+                self.Segment.alpha = 0
+                
+            }
+            
+        }
       
             // display all regions
         if let region = selectedRegion {
@@ -163,7 +176,15 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             let attractions = region.attractionList?.map { attractionAnno -> MKAnnotation in
                 
                 attractionAnno.setAnnotation()
+                UIView.animate(withDuration: 2) {
+                    self.Segment.alpha = 1
+                    self.Segment.isHidden = false
+
+                }
+
+                
                 return attractionAnno
+                
             }
             mainMap.addAnnotations(attractions ?? [])
             
@@ -179,6 +200,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     override func viewDidLoad() {
         
+    
+        Segment.isHidden = true
         searchBarMap.delegate = self
         
         //show user location
@@ -189,83 +212,75 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         self.ref = Database.database().reference()
         
         
-        SMRegionManager.shared.loedCity()
         
-        
-        
-        
-        
-        let regions = SMRegionManager.shared.regionList.map { region -> MKAnnotation in
-            region.setRegionAnnotation()
-            return region
+        SMRegionManager.shared.loedCity(){ [unowned self] regionListItem in
+            self.drawAssignedPins()
         }
         
-        let attractions = SMRegionManager.shared.testList.map { attraction  -> MKAnnotation in
-            attraction.setAnnotation()
-            
-            
-            return attraction
-        }
-        
-        
-        mainMap.addAnnotations(attractions)
-        
-        mainMap.addAnnotations(regions)
-        
-        
-        
-        
-        
-       
       
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
-        prepareSegmentView()
+        preparePrepareSegmentView()
+        
+        
 
         
         drawAssignedPins()
         
         }
     
-
-    
-    func prepareSegmentView(){
-    
-        //segmented
-        let item11 = Category(title: "All", image: "All", selectedImage: "All")
-        let item12 = Category(title: "Mall", image: "Mall", selectedImage: "Mall")
-        let item13 = Category(title: "Religious", image: "Religious", selectedImage: "Religious")
-        let item14 = Category(title: "Park", image: "Park", selectedImage: "Park")
-        let item15 = Category(title: "Historical", image: "Historical", selectedImage: "Historical")
-        let item16 = Category(title: "Events", image: "calendar", selectedImage: "calendar")
+    func preparePrepareSegmentView() {
         
-        let imageTextSegment = NLSegmentControl(segments: [item11, item12, item13, item14, item15,item16])
-        
-        self.Segment.addSubview(imageTextSegment)
-        imageTextSegment.selectionIndicatorColor = UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)
-        imageTextSegment.segmentWidthStyle = .dynamic
-        imageTextSegment.segmentEdgeInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 15)
-        imageTextSegment.imagePosition = .left
-        //        imageTextSegment.imageTitleSpace = 10
-        //        imageTextSegment.enableVerticalDivider = true
-        imageTextSegment.selectionIndicatorStyle = .textWidthStripe
-        imageTextSegment.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.black]
-        imageTextSegment.selectedTitleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)]
-        
-        
-        
-        imageTextSegment.indexChangedHandler = {
-            (index) in
-            print("Ramadan changed: \(index)")
+      SMRegionManager.shared.LoadTypes{ [unowned self] (types) in
+            self.typesArray.append(Category(title: "All", image: " ", selectedImage: " "))
+            for i in(0..<types.count){
+                self.typesArray.append(Category(title: types[i].name, image: " ", selectedImage: " "))
+            }
+            
+            
+            prepareSegmentView()
         }
         
-        imageTextSegment.nl_marginTop(toView: Segment, margin:-65)
-        imageTextSegment.nl_equalLeft(toView: self.Segment, offset: 0)
-        imageTextSegment.nl_equalRight(toView: self.Segment, offset: 0)
-        imageTextSegment.nl_heightIs(60)
-        imageTextSegment.reloadSegments()
+        func prepareSegmentView(){
+            
+            
+            
+            let imageTextSegment = NLSegmentControl(segments: typesArray)
+            //segmented
+            self.Segment.addSubview(imageTextSegment)
+            imageTextSegment.selectionIndicatorColor = UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)
+            imageTextSegment.segmentWidthStyle = .dynamic
+            imageTextSegment.segmentEdgeInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 15)
+            imageTextSegment.imagePosition = .left
+            //        imageTextSegment.imageTitleSpace = 10
+            //        imageTextSegment.enableVerticalDivider = true
+            imageTextSegment.selectionIndicatorStyle = .textWidthStripe
+            imageTextSegment.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.white]
+            imageTextSegment.selectedTitleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)]
+            
+            
+            imageTextSegment.indexChangedHandler = {
+                (index) in
+                print("Ramadan changed: \(index)")
+                self.selectedSegmentType = self.typesArray[index].categoryTitle ?? "All"
+                if let region = self.selectedRegion{
+                    self.loadAttractionBasedOnFilters()
+                }else{
+                    print ("You have to choose a regison first, or at least get the nearst region to my location")
+                }
+                
+            }
+            
+            imageTextSegment.nl_marginTop(toView: Segment, margin:-65)
+            imageTextSegment.nl_equalLeft(toView: self.Segment, offset: 0)
+            imageTextSegment.nl_equalRight(toView: self.Segment, offset: 0)
+            imageTextSegment.nl_heightIs(60)
+            imageTextSegment.reloadSegments()
+        }
     }
+   
+
     
     //searchBar
 
@@ -305,10 +320,18 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         print("Zoom Index  \(mapView.region.span.longitudeDelta)")
         
         if mapView.region.span.longitudeDelta > 2 {
+            
+            UIView.animate(withDuration: 2) {
+                self.Segment.alpha = 0
+                            self.Segment.isHidden = true
+
+            }
+            
             selectedRegion = nil
             drawAssignedPins()
         }else if (mapView.region.span.longitudeDelta < 4 && selectedRegion == nil){
             // I need to set the selected Region to the nearest region to the map center
+           
            
             
             var minimum = Int.max
@@ -327,6 +350,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 }
             
             }
+            
+            
             drawAssignedPins()
         }
         
