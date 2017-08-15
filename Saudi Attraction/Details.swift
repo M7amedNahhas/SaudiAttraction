@@ -1,5 +1,5 @@
 //
-//  DetailsViewController.swift
+//  Details.swift
 //  Saudi Attraction
 //
 //  Created by عبدالرحمن الفارس on ٢٢ ذو. ق، ١٤٣٨ هـ.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class Details: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
