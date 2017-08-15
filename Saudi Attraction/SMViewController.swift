@@ -96,6 +96,9 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             v!.sizeToFit()
             
             v!.image = UIImage(named:"mapPin")
+//            let cityLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+//            cityLabel.text = annotation.title!
+//            v!.addSubview(cityLabel)
             
             
             
@@ -127,7 +130,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 mainMap.setRegion(regionRect, animated: true)
                 
                 
-                selectedRegion = region
+                publicSelectedRegion = region
                 
                 loadAttractionBasedOnFilters()
                 
@@ -142,46 +145,96 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
 
     }
     
-    @IBAction func refresh(_ sender: UIButton) {
-        
-    }
     
     
     func  loadAttractionBasedOnFilters()
     {
-        SMRegionManager.shared.loadAttraction(regionID: selectedRegion!.id, TypeID: selectedSegmentType){ [unowned self] attractionListItems in
-            self.selectedRegion?.attractionList?.removeAll()
-            self.selectedRegion?.attractionList = attractionListItems
+        SMRegionManager.shared.loadAttraction(regionID: publicSelectedRegion!.id, TypeID: selectedSegmentType){ [unowned self] attractionListItems in
+            self.publicSelectedRegion?.attractionList?.removeAll()
+            self.publicSelectedRegion?.attractionList = attractionListItems
             self.drawAssignedPins()
         }
     }
     
+    func beginAnimation () {
+        // 1st transformation
+        Segment.isHidden = false
+        self.Segment.transform = CGAffineTransform(translationX: 0, y: -100)
+        
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
+            // 2nd transformation
+            self.Segment.transform = CGAffineTransform(translationX: 0, y: 25)
+        }, completion: { completion in
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+                // 3rd transformation
+                self.Segment.transform = CGAffineTransform(translationX: 0, y:0)
+            }, completion: nil)
+        })
+    }
+    func endAnimation () {
+        // 1st transformation
+        self.Segment.transform = CGAffineTransform(translationX: 0, y: 0)
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
+            // 2nd transformation
+            self.Segment.transform = CGAffineTransform(translationX: 0, y: 25)
+        }, completion: { completion in
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+                // 3rd transformation
+                self.Segment.transform = CGAffineTransform(translationX: 0, y: -100)
+                self.Segment.isHidden = true
+            }, completion: nil)
+        })
+    }
+    
+    
+//    func animation(){
+//        let selcted  = selectedRegion
+//
+//        if selcted != nil {
+//            
+//            beginAnimation()
+//        }else {
+//            endAnimation()
+//        }
+//        
+//    }
 
+
+    
+    var publicSelectedRegion: SMRegion? {
+        set {
+            if let region = newValue {
+                // begion animation
+                beginAnimation()
+                print( "Start Animation as \(region.regionName) is selected")
+            }else{
+                endAnimation()
+                print( "End Animation")
+            }
+            selectedRegion = newValue
+        }
+        get { return selectedRegion }
+    }
+    
     
     func drawAssignedPins(){
         
-        func animation(){
-            UIView.animate(withDuration: 2) {
-                self.Segment.alpha = 0
-                
-            }
-            
-        }
+        
+        
       
             // display all regions
-        if let region = selectedRegion {
+        if let region = publicSelectedRegion {
+            
+            //beginAnimation()
             // I will remove all items from the map & then put this region's attractions
             mainMap.removeAnnotations(mainMap.annotations)
             
             let attractions = region.attractionList?.map { attractionAnno -> MKAnnotation in
                 
                 attractionAnno.setAnnotation()
-                UIView.animate(withDuration: 2) {
-                    self.Segment.alpha = 1
-                    self.Segment.isHidden = false
-
-                }
-
+                
                 
                 return attractionAnno
                 
@@ -189,6 +242,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             mainMap.addAnnotations(attractions ?? [])
             
     } else {
+           // endAnimation()
             mainMap.removeAnnotations(mainMap.annotations)
             let regions = SMRegionManager.shared.regionList.map { regionAnno -> MKAnnotation in
                 regionAnno.setRegionAnnotation()
@@ -200,10 +254,12 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     override func viewDidLoad() {
         
+        self.Segment.transform = CGAffineTransform(translationX: 0, y: -100)
     
-        Segment.isHidden = true
+        
         searchBarMap.delegate = self
         
+       Segment.isHidden = true
         //show user location
         mainMap.showsUserLocation = true
 
@@ -223,7 +279,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         manager.requestWhenInUseAuthorization()
         preparePrepareSegmentView()
         
-        
+        publicSelectedRegion = nil
 
         
         drawAssignedPins()
@@ -264,7 +320,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 (index) in
                 print("Ramadan changed: \(index)")
                 self.selectedSegmentType = self.typesArray[index].categoryTitle ?? "All"
-                if let region = self.selectedRegion{
+                if let region = self.publicSelectedRegion{
                     self.loadAttractionBasedOnFilters()
                 }else{
                     print ("You have to choose a regison first, or at least get the nearst region to my location")
@@ -272,7 +328,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 
             }
             
-            imageTextSegment.nl_marginTop(toView: Segment, margin:-65)
+            imageTextSegment.nl_marginTop(toView: Segment, margin:-60)
             imageTextSegment.nl_equalLeft(toView: self.Segment, offset: 0)
             imageTextSegment.nl_equalRight(toView: self.Segment, offset: 0)
             imageTextSegment.nl_heightIs(60)
@@ -321,15 +377,15 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         if mapView.region.span.longitudeDelta > 2 {
             
-            UIView.animate(withDuration: 2) {
-                self.Segment.alpha = 0
-                            self.Segment.isHidden = true
-
-            }
+//            UIView.animate(withDuration: 2) {
+//                self.Segment.alpha = 0
+//                            self.Segment.isHidden = true
+//
+//            }
             
-            selectedRegion = nil
+            publicSelectedRegion = nil
             drawAssignedPins()
-        }else if (mapView.region.span.longitudeDelta < 4 && selectedRegion == nil){
+        }else if (mapView.region.span.longitudeDelta < 4 && publicSelectedRegion == nil){
             // I need to set the selected Region to the nearest region to the map center
            
            
@@ -346,7 +402,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 let distanceInMeters = mapCenter.distance(from: regionCenter) // result is in meters
                 if (Int(distanceInMeters) < minimum) {
                     minimum = Int(distanceInMeters)
-                    selectedRegion = region
+                    publicSelectedRegion = region
                 }
             
             }
