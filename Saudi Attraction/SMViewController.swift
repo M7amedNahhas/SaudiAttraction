@@ -25,13 +25,10 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     @IBOutlet weak var Segment: NLSegmentControl!
     
+    @IBOutlet weak var detailsCView: UIView!
     
 
     @IBOutlet var searchBarMap: UISearchBar!
-    
-    
-    
-
     
     
     @IBAction func currentLocationActionBT(_ sender: UIButton) {
@@ -49,10 +46,12 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
     }
     
-        
+   
    
     
-        
+    
+    
+    
     @IBOutlet weak var mainMap: MKMapView!
     
     var zoomRect = MKMapRectNull;
@@ -136,14 +135,29 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             }else if let attraction = view.annotation as? SMAttraction {
                 print(attraction.name)
                 self.selectedAttraction = attraction
-                self.performSegue(withIdentifier: "segueToAttractionDetail", sender: nil)
+              // self.performSegue(withIdentifier: "segueToAttractionDetail", sender: nil)
+                
+                
+                let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                self.addChildViewController(detailsViewController)
+                
+                detailsViewController.attraction = attraction
+                self.view.addSubview(detailsViewController.view)
+                
+                detailsViewController.didMove(toParentViewController: self)
+                
+                           
+                
+
             }
             
             
         }
 
     }
-    
+    func startingFrame(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
     @IBAction func refresh(_ sender: UIButton) {
         
     }
@@ -179,6 +193,10 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     override func viewDidLoad() {
         
+       
+        
+        
+        
         searchBarMap.delegate = self
         
         //show user location
@@ -190,10 +208,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         
         SMRegionManager.shared.loedCity()
-        
-        
-        
-        
+    
         
         let regions = SMRegionManager.shared.regionList.map { region -> MKAnnotation in
             region.setRegionAnnotation()
@@ -213,10 +228,6 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         mainMap.addAnnotations(regions)
         
         
-        
-        
-        
-       
       
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -339,18 +350,26 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     }
 
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      if ( segue.identifier == "segueToAttractionDetail"){
-     if let detailsViewController = segue.destination as? DetailsViewController{
+     if let attractionDetailsViewController = segue.destination as? AttractionDetailsViewController{
         
-            detailsViewController.attraction = selectedAttraction
+            attractionDetailsViewController.attraction = selectedAttraction
                 
             }
         }
     }
- 
+ */
 
 
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 }

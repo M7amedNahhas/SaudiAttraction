@@ -9,9 +9,15 @@
 import UIKit
 
 class DetailsTableViewController: UITableViewController {
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.viewIfLoaded?.backgroundColor?.setFill()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

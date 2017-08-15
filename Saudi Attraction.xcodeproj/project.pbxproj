@@ -35,8 +35,9 @@
 		62F966EF1F3201BB00567A16 /* Mall.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EA1F3201BB00567A16 /* Mall.png */; };
 		62F966F01F3201BB00567A16 /* Religious.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EB1F3201BB00567A16 /* Religious.png */; };
 		62F966F11F3201BB00567A16 /* All.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EC1F3201BB00567A16 /* All.png */; };
+		C053047A1F41DF3B00F8CA89 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05304791F41DF3B00F8CA89 /* DetailsViewController.swift */; };
+		C053047C1F42E65F00F8CA89 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053047B1F42E65F00F8CA89 /* DetailsTableViewCell.swift */; };
 		C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515A1F31C61100F5D338 /* SMRegionManager.swift */; };
-		C09C515D1F3C837900F5D338 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515C1F3C837900F5D338 /* DetailsViewController.swift */; };
 		C09C515F1F3CA0A000F5D338 /* Alrajhi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */; };
 		E503B3E7E3064D356232853D /* Pods_Saudi_AttractionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */; };
 		E99E33C52A749475660921F1 /* Pods_Saudi_Attraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */; };
@@ -117,8 +118,9 @@
 		95D86EABCB225879F85BC4FC /* Pods-Saudi AttractionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.release.xcconfig"; sourceTree = "<group>"; };
 		9AA5A8EB44A8BCBAFF3D781B /* Pods-Saudi AttractionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_Attraction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C05304791F41DF3B00F8CA89 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C053047B1F42E65F00F8CA89 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		C09C515A1F31C61100F5D338 /* SMRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegionManager.swift; sourceTree = "<group>"; };
-		C09C515C1F3C837900F5D338 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Alrajhi.jpg; sourceTree = "<group>"; };
 		C47B50EA33B56A8F9AD40F84 /* Pods_Saudi_AttractionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -203,7 +205,8 @@
 				C09C515A1F31C61100F5D338 /* SMRegionManager.swift */,
 				62F65D2A1F28C03800914FB5 /* SMAttraction.swift */,
 				62F966D61F31B92300567A16 /* Category.swift */,
-				C09C515C1F3C837900F5D338 /* DetailsViewController.swift */,
+				C05304791F41DF3B00F8CA89 /* DetailsViewController.swift */,
+				C053047B1F42E65F00F8CA89 /* DetailsTableViewCell.swift */,
 				62F65D061F28B10B00914FB5 /* Info.plist */,
 				62F966E61F3201A200567A16 /* image.xcassets */,
 			);
@@ -597,11 +600,12 @@
 				62F65CFD1F28B10B00914FB5 /* SMViewController.swift in Sources */,
 				62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */,
 				C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */,
+				C053047C1F42E65F00F8CA89 /* DetailsTableViewCell.swift in Sources */,
 				62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */,
 				62F966C81F31B71F00567A16 /* UIView+Layout.swift in Sources */,
 				62F966C71F31B71F00567A16 /* NLSegmentControlData.swift in Sources */,
 				62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */,
-				C09C515D1F3C837900F5D338 /* DetailsViewController.swift in Sources */,
+				C053047A1F41DF3B00F8CA89 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
