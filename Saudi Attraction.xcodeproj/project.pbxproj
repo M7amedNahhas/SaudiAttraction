@@ -22,6 +22,7 @@
 		62F65D1B1F28B10B00914FB5 /* Saudi_AttractionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D1A1F28B10B00914FB5 /* Saudi_AttractionUITests.swift */; };
 		62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2A1F28C03800914FB5 /* SMAttraction.swift */; };
 		62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2C1F28C05F00914FB5 /* SMRegion.swift */; };
+		62F7A5E91F43208500DE359A /* MKRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F7A5E81F43208500DE359A /* MKRegionView.swift */; };
 		62F966C51F31B71F00567A16 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62F966C01F31B71F00567A16 /* Info.plist */; };
 		62F966C61F31B71F00567A16 /* NLSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C21F31B71F00567A16 /* NLSegmentControl.swift */; };
 		62F966C71F31B71F00567A16 /* NLSegmentControlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C31F31B71F00567A16 /* NLSegmentControlData.swift */; };
@@ -100,6 +101,7 @@
 		62F65D1C1F28B10B00914FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62F65D2A1F28C03800914FB5 /* SMAttraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMAttraction.swift; sourceTree = "<group>"; };
 		62F65D2C1F28C05F00914FB5 /* SMRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegion.swift; sourceTree = "<group>"; };
+		62F7A5E81F43208500DE359A /* MKRegionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKRegionView.swift; sourceTree = "<group>"; };
 		62F966C01F31B71F00567A16 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62F966C11F31B71F00567A16 /* NLSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSegmentControl.h; sourceTree = "<group>"; };
 		62F966C21F31B71F00567A16 /* NLSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLSegmentControl.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				C053047D1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift */,
 				62F65D061F28B10B00914FB5 /* Info.plist */,
 				62F966E61F3201A200567A16 /* image.xcassets */,
+				62F7A5E81F43208500DE359A /* MKRegionView.swift */,
 			);
 			path = "Saudi Attraction";
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				C053047E1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift in Sources */,
 				62F65CFD1F28B10B00914FB5 /* SMViewController.swift in Sources */,
 				62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */,
+				62F7A5E91F43208500DE359A /* MKRegionView.swift in Sources */,
 				624956351F4070FB006CA987 /* AttractionType.swift in Sources */,
 				C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */,
 				C053047C1F42E65F00F8CA89 /* DetailsTableViewCell.swift in Sources */,

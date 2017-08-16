@@ -64,7 +64,7 @@ class SMAttraction: MKPointAnnotation{
     }
     
     
-    init(name: String, latitude: Double, longitude: Double, description: String , type : String , contactInfo : String , images : [String]) {
+    init(name: String, latitude: Double, longitude: Double, description: String , type: String , contactInfo: String , images: [String]) {
         self._name = name
         self._latitude = latitude
         self._longitude = longitude

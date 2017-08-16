@@ -10,7 +10,8 @@ import UIKit
 
 class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollectionViewDataSource {
     
-    @IBOutlet weak var contactInf: UILabel!
+    
+    @IBOutlet weak var contactInfo: UILabel!
     @IBOutlet weak var attractionDescription: UILabel!
     
     @IBOutlet weak var attractionType: UILabel!
@@ -51,7 +52,9 @@ class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollec
 
     }
     func UpdateContactInfo (){
-        //contactInf.text = attraction?.contactInfo
+       
+        contactInfo.text = attraction?.contactInfo
+   
     }
     
     func UpdateAttractionImages (){

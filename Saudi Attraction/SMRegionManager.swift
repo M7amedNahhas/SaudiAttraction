@@ -67,12 +67,12 @@ class SMRegionManager : MKPointAnnotation {
             var attractionList = [SMAttraction]()
             if let array = snapshot.value as? [[String: Any]]{
                 for attractionDic in array {
-                    let atName = attractionDic["name"] as? String ?? "NoAtName"
+                    let atName = attractionDic["name"] as? String ?? "NoName"
                     let atLat = attractionDic["lat"] as? Double ?? 0.0
                     let atlong = attractionDic["lng"] as? Double ?? 0.0
                     let atDesc = attractionDic["Desc"] as? String ?? "NoDescription"
-                    let atContactInfo = attractionDic["ContactInfo"] as? String ?? "NoContactIfo"
-                    let atType = attractionDic["Type"] as? String ?? "NOType"
+                    let atContactInfo = attractionDic["ContactInfo"] as? String ?? "NoContactInfo"
+                    let atType = attractionDic["Type"] as? String ?? "NoType"
                     
                     let imagesArray = attractionDic["images"] as? [[String: Any]] ?? []
                     
@@ -137,38 +137,8 @@ class SMRegionManager : MKPointAnnotation {
             
         })
     }
-//    func loadimages() {
-//        ref = Database.database().reference()
-//        ref.child("SA/Attraction").child("images").observe(.value, with: {(snapshot)in
-//            
-//            var attractionList = [SMAttraction]()
-//            if let array = snapshot.value as? [[String: Any]]{
-//                for attractionDic in array {
-//                    let images = attractionDic["URL"] as? String ?? "NoiMages"
-//                        attractionList.append(SMAttraction(name: "", latitude: Double, longitude:Double , description: "", type: "", contactInfo: "", images: [images]))
-//                    
-//                    
-//                }
-//                
-//                
-//            }
-//        })
-//        
-//        
-//    }
-    
     
 
-
-
-
-
-
-   
-
-  
-    
-    
     
     func setRegionList () -> [SMRegion] {
         return regionList
