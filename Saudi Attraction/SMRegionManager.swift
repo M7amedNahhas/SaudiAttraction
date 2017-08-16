@@ -137,38 +137,8 @@ class SMRegionManager : MKPointAnnotation {
             
         })
     }
-//    func loadimages() {
-//        ref = Database.database().reference()
-//        ref.child("SA/Attraction").child("images").observe(.value, with: {(snapshot)in
-//            
-//            var attractionList = [SMAttraction]()
-//            if let array = snapshot.value as? [[String: Any]]{
-//                for attractionDic in array {
-//                    let images = attractionDic["URL"] as? String ?? "NoiMages"
-//                        attractionList.append(SMAttraction(name: "", latitude: Double, longitude:Double , description: "", type: "", contactInfo: "", images: [images]))
-//                    
-//                    
-//                }
-//                
-//                
-//            }
-//        })
-//        
-//        
-//    }
-    
     
 
-
-
-
-
-
-   
-
-  
-    
-    
     
     func setRegionList () -> [SMRegion] {
         return regionList

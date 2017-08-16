@@ -83,31 +83,68 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         if annotation is MKUserLocation {return nil}
         
         
+        if let _ = annotation as? SMRegion{
+            
+            let reuseIdentifier = "pin"
+            
+            var v = mainMap.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKRegionView
+            if v == nil {
+                //            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+                //
+                //            v!.canShowCallout = true
+                //            let calloutButton = UIButton(type: .detailDisclosure)
+                //            v!.rightCalloutAccessoryView = calloutButton
+                //            v!.sizeToFit()
+                //
+                //            v!.image = UIImage(named:"mapPin")
+                
+                v = MKRegionView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+//                v!.canShowCallout = true
+//                let calloutButton = UIButton(type: .detailDisclosure)
+//                v!.rightCalloutAccessoryView = calloutButton
+//                v!.sizeToFit()
+                v!.image = UIImage(named:"mapPin")
+                v!.setSelected(true, animated: true)
+                
+                
+                
+                
+                
+                
+            }
+            else {
+                v!.annotation = annotation
+                v!.setSelected(true, animated: true)
+                
+                
+            }
+            return v
         
-        let reuseIdentifier = "pin"
+        }else{
         
-        var v = mainMap.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        if v == nil {
-            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            let reuseIdentifier = "pinAttraction"
             
-            v!.canShowCallout = true
-            let calloutButton = UIButton(type: .detailDisclosure)
-            v!.rightCalloutAccessoryView = calloutButton
-            v!.sizeToFit()
-            
-            v!.image = UIImage(named:"mapPin")
-//            let cityLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-//            cityLabel.text = annotation.title!
-//            v!.addSubview(cityLabel)
-            
-            
-            
+            var v = mainMap.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+            if v == nil {
+                            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+                
+                            v!.canShowCallout = true
+                            let calloutButton = UIButton(type: .detailDisclosure)
+                            v!.rightCalloutAccessoryView = calloutButton
+                            v!.sizeToFit()
+                
+                            v!.image = UIImage(named:"mapPin")
+                
+            }
+            else {
+                v!.annotation = annotation
+                
+            }
+            return v
+        
         }
-        else {
-            v!.annotation = annotation
-            
-        }
-        return v
+        
+        
     }
     
 
@@ -155,6 +192,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             self.drawAssignedPins()
         }
     }
+    // animation 
     
     func beginAnimation () {
         // 1st transformation
@@ -189,19 +227,8 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     }
     
     
-//    func animation(){
-//        let selcted  = selectedRegion
-//
-//        if selcted != nil {
-//            
-//            beginAnimation()
-//        }else {
-//            endAnimation()
-//        }
-//        
-//    }
 
-
+ // animation when the region selected
     
     var publicSelectedRegion: SMRegion? {
         set {
@@ -305,15 +332,15 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             let imageTextSegment = NLSegmentControl(segments: typesArray)
             //segmented
             self.Segment.addSubview(imageTextSegment)
-            imageTextSegment.selectionIndicatorColor = UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)
+            imageTextSegment.selectionIndicatorColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
             imageTextSegment.segmentWidthStyle = .dynamic
             imageTextSegment.segmentEdgeInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 15)
             imageTextSegment.imagePosition = .left
             //        imageTextSegment.imageTitleSpace = 10
             //        imageTextSegment.enableVerticalDivider = true
             imageTextSegment.selectionIndicatorStyle = .textWidthStripe
-            imageTextSegment.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.white]
-            imageTextSegment.selectedTitleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor(red: 52/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0)]
+            imageTextSegment.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.black]
+            imageTextSegment.selectedTitleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)]
             
             
             imageTextSegment.indexChangedHandler = {
@@ -377,11 +404,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
         if mapView.region.span.longitudeDelta > 2 {
             
-//            UIView.animate(withDuration: 2) {
-//                self.Segment.alpha = 0
-//                            self.Segment.isHidden = true
-//
-//            }
+
             
             publicSelectedRegion = nil
             drawAssignedPins()
@@ -430,6 +453,23 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         }
     }
  
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let region = view.annotation as? SMRegion{
+            print(region.regionName)
+            
+            
+            let span = MKCoordinateSpanMake(0.2, 0.2)
+            let regionRect = MKCoordinateRegion(center: region.coordinate, span: span)
+            mainMap.setRegion(regionRect, animated: true)
+            
+            
+            publicSelectedRegion = region
+            
+            loadAttractionBasedOnFilters()
+
+        }
+    }
 
 
 
