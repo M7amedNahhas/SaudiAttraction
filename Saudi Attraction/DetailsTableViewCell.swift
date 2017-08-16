@@ -8,21 +8,27 @@
 
 import UIKit
 
-class DetailsTableViewCell: UITableViewCell {
+class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollectionViewDataSource {
     
-    
-    var attraction : SMAttraction?
-    
-    
+    @IBOutlet weak var contactInf: UILabel!
+    @IBOutlet weak var attractionDescription: UILabel!
     
     @IBOutlet weak var attractionType: UILabel!
+    var attraction : SMAttraction?
+    
+    var ImageColectionCell : AttractionImageCollectionViewCell?
+    
     
     
     @IBOutlet weak var attractionName: UILabel!
+    
+    
+    @IBOutlet weak var imagesCollectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,10 +40,47 @@ class DetailsTableViewCell: UITableViewCell {
         attractionName.text = attraction?.name
         
     }
-    func UpdateAttractionType() {
+    
+    func UpdateAttractionType (){
         attractionType.text = attraction?.type
+    }
+    
+    func UpdateAttractionDescription() {
+        
+        attractionDescription.text = attraction?.description
 
     }
+    func UpdateContactInfo (){
+        //contactInf.text = attraction?.contactInfo
+    }
+    
+    func UpdateAttractionImages (){
+        imagesCollectionView.delegate = self
+        imagesCollectionView.dataSource = self
+        
+        imagesCollectionView.reloadData()
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return attraction?.images.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let  imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AttractionImageCollectionViewCell", for: indexPath) as! AttractionImageCollectionViewCell
+        
+        imageCell.attraction = attraction
+        // set Default Image
+        if let url = URL(string: attraction?.images[indexPath.row] ?? "") {
+            imageCell.attractionImages.af_setImage(withURL:url )
+        }
 
+        
+    
+        
+        return imageCell
+    }
 
+   
+   
 }

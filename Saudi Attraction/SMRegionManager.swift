@@ -14,7 +14,8 @@ class SMRegionManager : MKPointAnnotation {
     
     var regionList : [SMRegion] = []
     var ref: DatabaseReference!
-    var testList :[SMAttraction] = []
+    var LoadTypeFromServerArray:[AttractionType] = []
+    var LoadPinsSellected:[AttractionType] = []
     
     
     
@@ -25,59 +26,7 @@ class SMRegionManager : MKPointAnnotation {
         regionList = []
 
         
-      /*
-        let makkahRegion = SMRegion(regionID: "", regionName: "Makkah", latitude:21.3890824 , longitude:39.85791180000001 )
-        
-        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "Masjid Aishah Alrajhi in Alnseem", type: "Religious", contactInfo: "-", images: []))
-       makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
-        makkahRegion.attractionList?.append(SMAttraction(name: "Makkah mall", latitude: 21.391079, longitude: 39.884589, description: "mall of makkah"))
-        
-
-
-        
-        
-
-
-        
-        
-        
-        let riyadhRegion = SMRegion(regionID: "!!!!!!",regionName: "Riyadh", latitude: 24.7135517, longitude: 46.67529569999999)
-        riyadhRegion.attractionList?.append(SMAttraction(name: "Al Faisaliyah ", latitude: 24.6905765, longitude: 46.68509700000004, description: " "))
-        riyadhRegion.attractionList?.append(SMAttraction(name: "برج المملكة ", latitude: 24.7111837, longitude: 46.67340100000001, description: " "))
-        
-        
-        
-        
-        let madinahRegion = SMRegion(regionID: "!!!!!!", regionName: "Almadinah", latitude:24.468088137204234 , longitude:39.61051940917969 )
-        madinahRegion.attractionList?.append(SMAttraction(name: "المسجد النبوي الشريف", latitude: 24.468088137204234, longitude: 39.61051940917969, description: " "))
-        madinahRegion.attractionList?.append(SMAttraction(name: "جبل أحد", latitude: 24.5217701, longitude: 39.62600580000003, description: " "))
-        madinahRegion.attractionList?.append(SMAttraction(name: "Alnoor Mall", latitude: 24.4961496, longitude: 39.59560550000003, description: "Shopping mall"))
-
-        
-        
-        
-        //regionList.append(jeddahRegion)
-        //regionList.append(makkahRegion)
-        regionList.append(riyadhRegion)
-        regionList.append(madinahRegion)
-      
-   }
-         
-            
-            
-            
-        })
-    
-
-
-
-             regionList.append(jeddahRegion)
-             regionList.append(riyadhRegion)
-             regionList.append(madinahRegion)
-             regionList.append(makkahRegion)
-
- 
- */
+     
         
         
 
@@ -85,7 +34,7 @@ class SMRegionManager : MKPointAnnotation {
 
     
 
-    func loedCity(){
+    func loedCity(completionHandler:@escaping ([SMRegion]) -> ()){
         ref = Database.database().reference()
         ref.child("SA/citys").queryOrdered(byChild: "CityName").observe(.value, with: {(snapshot)in
             
@@ -105,12 +54,13 @@ class SMRegionManager : MKPointAnnotation {
                 
             }
             
+            completionHandler(self.regionList)
         }
         )}
     
     
     
-    func loadAttraction(regionID: String, completionHandler:@escaping ([SMAttraction]) -> ()) {
+    func loadAttraction(regionID: String,TypeID: String, completionHandler:@escaping ([SMAttraction]) -> ()) {
         ref = Database.database().reference()
         ref.child("SA/Attraction").child("\(regionID)").queryOrdered(byChild: "atName").observe(.value, with: {(snapshot)in
             
@@ -121,9 +71,20 @@ class SMRegionManager : MKPointAnnotation {
                     let atLat = attractionDic["lat"] as? Double ?? 0.0
                     let atlong = attractionDic["lng"] as? Double ?? 0.0
                     let atDesc = attractionDic["Desc"] as? String ?? "NoDescription"
+                    let atContactInfo = attractionDic["ContactInfo"] as? String ?? "NoContactIfo"
                     let atType = attractionDic["Type"] as? String ?? "NOType"
                     
-                    attractionList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc, type: atType, contactInfo: "!!", images: []))
+                    let imagesArray = attractionDic["images"] as? [[String: Any]] ?? []
+                    
+                    var images = [String]()
+                    for imageDic in imagesArray {
+                        images.append(imageDic["URL"] as? String ?? "")
+                    }
+                    
+                    if TypeID == "All" || atType == TypeID{
+                        attractionList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc, type: atType, contactInfo: atContactInfo, images: images))
+                    }
+                    
                 }
                 
                 completionHandler(attractionList)
@@ -132,11 +93,79 @@ class SMRegionManager : MKPointAnnotation {
         
         
     }
-
-
- 
-   
     
+    func LoadTypes(completionHandler:@escaping ([AttractionType]) -> ()) {
+        ref = Database.database().reference()
+        self.ref.child("SA").child("Types").queryOrdered(byChild: "name").observe(.value, with: {(snapshot) in
+
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                self.LoadTypeFromServerArray.removeAll()
+                
+                for snap in snapshot {
+                    if let postDict = snap.value as? [String : Any] {
+                        let name = postDict["name"] as? String ?? "NoName"
+                        let URL = postDict["image"] as? String ?? "NoURL"
+                        let ID = postDict["id"] as? String ?? "NoID"
+                        self.LoadTypeFromServerArray.append(AttractionType(name: name, URL: URL, ID: ID))
+                    }
+                }
+                
+                completionHandler(self.LoadTypeFromServerArray)
+            }
+            
+        })
+    }
+    
+    func selectedLoadTypes(selectedType: String,completionHandler:@escaping ([AttractionType]) -> ()) {
+        ref = Database.database().reference()
+        self.ref.child("SA").child("Types").queryOrdered(byChild: selectedType).observe(.value, with: {(snapshot) in
+            
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                self.LoadPinsSellected.removeAll()
+                
+                for snap in snapshot {
+                    if let postDict = snap.value as? [String : Any] {
+                       
+                        self.LoadPinsSellected.append( AttractionType(name: "", URL: "", ID: selectedType))
+                    }
+                }
+                
+                completionHandler(self.LoadTypeFromServerArray)
+            }
+            
+        })
+    }
+//    func loadimages() {
+//        ref = Database.database().reference()
+//        ref.child("SA/Attraction").child("images").observe(.value, with: {(snapshot)in
+//            
+//            var attractionList = [SMAttraction]()
+//            if let array = snapshot.value as? [[String: Any]]{
+//                for attractionDic in array {
+//                    let images = attractionDic["URL"] as? String ?? "NoiMages"
+//                        attractionList.append(SMAttraction(name: "", latitude: Double, longitude:Double , description: "", type: "", contactInfo: "", images: [images]))
+//                    
+//                    
+//                }
+//                
+//                
+//            }
+//        })
+//        
+//        
+//    }
+    
+    
+
+
+
+
+
+
+   
+
   
     
     

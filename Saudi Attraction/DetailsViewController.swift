@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
+
+
 
 
 
@@ -14,6 +18,7 @@ import UIKit
 class DetailsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var attractionDetails: UITableView!
+   
     var attraction : SMAttraction!
     
     
@@ -29,7 +34,7 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
         
         
         
-        return 1
+        return 5
     }
     
     
@@ -37,6 +42,16 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
         
         
         if indexPath.row == 0 {
+            
+            if let attractionImagesCell = tableView.dequeueReusableCell(withIdentifier: "attractionImages", for: indexPath) as?DetailsTableViewCell {
+                
+                attractionImagesCell.attraction = attraction
+                attractionImagesCell.UpdateAttractionImages()
+                
+                return attractionImagesCell
+            }
+            
+        }else if indexPath.row == 1{
             if let attractionNameCell = tableView.dequeueReusableCell(withIdentifier: "attractionName", for: indexPath) as?DetailsTableViewCell {
                 
                 attractionNameCell.attraction = attraction
@@ -44,9 +59,8 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
                 
                 return attractionNameCell
             }
-        }
-        else if indexPath.row == 1 {
-       
+        }else if indexPath.row == 2 {
+            
             if let attractionTypeCell = tableView.dequeueReusableCell(withIdentifier: "attractionType", for: indexPath) as?DetailsTableViewCell {
                 
                 attractionTypeCell.attraction = attraction
@@ -56,18 +70,73 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
             }
             
         }
+        else if indexPath.row == 3 {
+       
+            if let attractionDescriptionCell = tableView.dequeueReusableCell(withIdentifier: "attractionDescription", for: indexPath) as?DetailsTableViewCell {
+                
+                attractionDescriptionCell.attraction = attraction
+                attractionDescriptionCell.UpdateAttractionDescription()
+                
+                return attractionDescriptionCell
+            }
+            
+        }else if indexPath.row == 4 {
+            
+            if let attractionContactInfo = tableView.dequeueReusableCell(withIdentifier: "attractionDescription", for: indexPath) as?DetailsTableViewCell {
+                
+                attractionContactInfo.attraction = attraction
+                attractionContactInfo.UpdateContactInfo()
+                
+                return attractionContactInfo
+            }
+            
+        }
+
+
         
-        
-            return UITableViewCell()
-        
+        return UITableViewCell()
+  
     }
+    
+    
+    
+   
+    
+  /*  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return attraction.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let  imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AttractionImageCollectionViewCell", for: indexPath) as! AttractionImageCollectionViewCell
+        
+        imageCell.attraction = attraction
+        // set Default Image
+        if let url = URL(string: attraction.images[indexPath.row]) {
+            imageCell.attractionImages.af_setImage(withURL:url )
+        }
+        
+        
+        
+        return imageCell
+    }
+    
+*/
+    
+    
+    
+    
 
     
     
-    
+    /* let downloadURL = NSURL(string: "http://www.lanlinglaurel.com/data/out/83/4652421-gaming-wallpaper.jpg")!
+     attractionImages.af_setImage(withURL: downloadURL as URL)*/
     
     
     @IBAction func discardDetailsViewAction(_ sender: UITapGestureRecognizer) {
+
+       
+        
+
         
         self.view.removeFromSuperview()
     }
@@ -95,5 +164,14 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.row == 0 )
+        {
+            return 200
+        }
+        
+        return 55
+    }
 
 }
