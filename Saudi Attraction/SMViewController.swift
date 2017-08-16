@@ -27,13 +27,10 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     @IBOutlet weak var Segment: NLSegmentControl!
     
+    @IBOutlet weak var detailsCView: UIView!
     
 
     @IBOutlet var searchBarMap: UISearchBar!
-    
-    
-    
-
     
     
     @IBAction func currentLocationActionBT(_ sender: UIButton) {
@@ -49,10 +46,12 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         
     }
     
-        
+   
    
     
-        
+    
+    
+    
     @IBOutlet weak var mainMap: MKMapView!
     
     var zoomRect = MKMapRectNull;
@@ -89,20 +88,9 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             
             var v = mainMap.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKRegionView
             if v == nil {
-                //            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-                //
-                //            v!.canShowCallout = true
-                //            let calloutButton = UIButton(type: .detailDisclosure)
-                //            v!.rightCalloutAccessoryView = calloutButton
-                //            v!.sizeToFit()
-                //
-                //            v!.image = UIImage(named:"mapPin")
-                
+
                 v = MKRegionView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-//                v!.canShowCallout = true
-//                let calloutButton = UIButton(type: .detailDisclosure)
-//                v!.rightCalloutAccessoryView = calloutButton
-//                v!.sizeToFit()
+
                 v!.image = UIImage(named:"mapPin")
                 v!.setSelected(true, animated: true)
                 
@@ -174,14 +162,27 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             }else if let attraction = view.annotation as? SMAttraction {
                 print(attraction.name)
                 self.selectedAttraction = attraction
-                self.performSegue(withIdentifier: "segueToAttractionDetail", sender: nil)
+              // self.performSegue(withIdentifier: "segueToAttractionDetail", sender: nil)
+                
+                
+                let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                self.addChildViewController(detailsViewController)
+                
+                detailsViewController.attraction = attraction
+                self.view.addSubview(detailsViewController.view)
+                
+                detailsViewController.didMove(toParentViewController: self)
+                
+                           
+                
+
             }
             
             
         }
 
     }
-    
+
     
     
     func  loadAttractionBasedOnFilters()
@@ -224,9 +225,11 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 self.Segment.isHidden = true
             }, completion: nil)
         })
+
     }
     
     
+
 
  // animation when the region selected
     
@@ -280,9 +283,11 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
 }
     
     override func viewDidLoad() {
+
         
         self.Segment.transform = CGAffineTransform(translationX: 0, y: -100)
     
+
         
         searchBarMap.delegate = self
         
@@ -295,11 +300,13 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         self.ref = Database.database().reference()
         
         
+
         
         SMRegionManager.shared.loedCity(){ [unowned self] regionListItem in
             self.drawAssignedPins()
         }
         
+
       
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -340,7 +347,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             //        imageTextSegment.enableVerticalDivider = true
             imageTextSegment.selectionIndicatorStyle = .textWidthStripe
             imageTextSegment.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17), NSForegroundColorAttributeName: UIColor.black]
-            imageTextSegment.selectedTitleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)]
+            imageTextSegment.selectedTitleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor(red: 140/255.0, green: 140/255.0, blue: 140/255.0, alpha: 1.0)]
             
             
             imageTextSegment.indexChangedHandler = {
@@ -402,21 +409,17 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         print("Zoom Index  \(mapView.region.span.longitudeDelta)")
         
-        if mapView.region.span.longitudeDelta > 2 {
+        if mapView.region.span.longitudeDelta > 1.7 {
             
 
             
             publicSelectedRegion = nil
             drawAssignedPins()
-        }else if (mapView.region.span.longitudeDelta < 4 && publicSelectedRegion == nil){
+        }else if (mapView.region.span.longitudeDelta < 1.7 && publicSelectedRegion == nil){
             // I need to set the selected Region to the nearest region to the map center
            
-           
-            
             var minimum = Int.max
-            
-            
-            
+         
             for region in SMRegionManager.shared.regionList// over all regions
             {
                 let mapCenter = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
@@ -429,8 +432,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
                 }
             
             }
-            
-            
+         
             drawAssignedPins()
         }
         
@@ -442,17 +444,6 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
         // Dispose of any resources that can be recreated.
     }
 
-    
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     if ( segue.identifier == "segueToAttractionDetail"){
-     if let detailsViewController = segue.destination as? DetailsViewController{
-        
-            detailsViewController.attraction = selectedAttraction
-                
-            }
-        }
-    }
- 
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let region = view.annotation as? SMRegion{
@@ -470,8 +461,5 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
 
         }
     }
-
-
-
 
 }

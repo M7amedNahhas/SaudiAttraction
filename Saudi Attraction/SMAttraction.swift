@@ -20,7 +20,7 @@ class SMAttraction: MKPointAnnotation{
     private var _type: String?
     private var _description: String?
     private var _contactInfo: String?
-    private var _image : [String]?
+    private var _images : [String]!
    
     
     
@@ -47,7 +47,7 @@ class SMAttraction: MKPointAnnotation{
     }
     
     var images : [String]{
-        return self.images
+        return self._images
     }
 
     var name: String {
@@ -64,16 +64,14 @@ class SMAttraction: MKPointAnnotation{
     }
     
     
-    init(name: String, latitude: Double, longitude: Double, description: String , type : String , contactInfo : String , images : [String]) {
+    init(name: String, latitude: Double, longitude: Double, description: String , type: String , contactInfo: String , images: [String]) {
         self._name = name
         self._latitude = latitude
         self._longitude = longitude
         self._description = description
         self._type = type
         self._contactInfo = contactInfo
-        self._image = images
- 
-       
+        self._images = images
     }
    
     
