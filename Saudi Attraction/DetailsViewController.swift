@@ -82,7 +82,7 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
             
         }else if indexPath.row == 4 {
             
-            if let attractionContactInfo = tableView.dequeueReusableCell(withIdentifier: "attractionDescription", for: indexPath) as?DetailsTableViewCell {
+            if let attractionContactInfo = tableView.dequeueReusableCell(withIdentifier: "contactInfo", for: indexPath) as?DetailsTableViewCell {
                 
                 attractionContactInfo.attraction = attraction
                 attractionContactInfo.UpdateContactInfo()

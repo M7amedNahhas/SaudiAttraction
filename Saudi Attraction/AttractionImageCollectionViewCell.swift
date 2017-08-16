@@ -14,10 +14,6 @@ class AttractionImageCollectionViewCell: UICollectionViewCell {
 
     
     @IBOutlet weak var attractionImages: UIImageView!
-    
-
-    func updateAttractionImages (){
-    }
-    
+ 
     
 }

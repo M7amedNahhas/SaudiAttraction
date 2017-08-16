@@ -74,12 +74,11 @@ class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollec
         if let url = URL(string: attraction?.images[indexPath.row] ?? "") {
             imageCell.attractionImages.af_setImage(withURL:url )
         }
-
-        
-    
         
         return imageCell
     }
+    
+    
 
    
    
