@@ -131,9 +131,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tEi-Rf-7JY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tEi-Rf-7JY">
                                 <rect key="frame" x="16" y="28" width="343" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.0094659391534391846" green="0.0094659391534391846" blue="0.0094659391534391846" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="attractionImages" rowHeight="200" id="9my-vN-f8X" customClass="DetailsTableViewCell" customModule="Saudi_Attraction" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="200"/>
@@ -159,7 +160,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JWc-tb-EBN">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JWc-tb-EBN">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -212,6 +213,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="CdD-yF-c11" secondAttribute="trailing" constant="2" id="pQX-xR-0Lk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.49743167049999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="attractionName" destination="CdD-yF-c11" id="a9L-iF-IrT"/>
                                         </connections>
@@ -225,7 +227,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening hours" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0Z-gp-2hc" userLabel="Opening Hours">
                                                     <rect key="frame" x="10" y="31" width="323" height="50"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="shadowColor" red="0.65371817129999998" green="0.65371817129999998" blue="0.65371817129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -249,8 +251,10 @@
                                                 <constraint firstItem="W0Z-gp-2hc" firstAttribute="centerY" secondItem="ybi-ic-75b" secondAttribute="centerY" constant="11.25" id="ufw-F1-U1u"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.49743167049999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="attractionType" destination="W0Z-gp-2hc" id="Wf0-vt-6co"/>
+                                            <outlet property="openingHours" destination="W0Z-gp-2hc" id="hd7-t9-b1B"/>
                                             <outlet property="openingHourstitle" destination="0Eg-fL-C95" id="hcK-Wp-AA3"/>
                                         </connections>
                                     </tableViewCell>
@@ -261,11 +265,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-AT-SNh">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-AT-SNh">
                                                     <rect key="frame" x="10" y="29" width="323" height="130"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" calendarEvent="YES"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- نبذة عن المكان :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT0-Y5-6qu">
                                                     <rect key="frame" x="179" y="0.0" width="147" height="21"/>
@@ -285,6 +289,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="gWX-AT-SNh" secondAttribute="trailing" constant="10" id="ksz-BZ-DV9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.49743167049999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="attractionDescription" destination="gWX-AT-SNh" id="aT7-0f-6HN"/>
                                             <outlet property="descriptionTitle" destination="nT0-Y5-6qu" id="43s-Rj-5lc"/>
@@ -299,7 +304,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-pv-PG3">
                                                     <rect key="frame" x="10" y="-1" width="323" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="shadowColor" red="0.65371817129999998" green="0.65371817129999998" blue="0.65371817129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -313,6 +318,7 @@
                                                 <constraint firstItem="Pyg-pv-PG3" firstAttribute="leading" secondItem="OlC-PI-D5T" secondAttribute="leading" constant="10" id="t8K-RU-nxh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.49743167049999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="contactInfo" destination="Pyg-pv-PG3" id="1oh-eg-cIG"/>
                                         </connections>

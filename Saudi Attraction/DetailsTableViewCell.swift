@@ -13,22 +13,22 @@ class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollec
     
     @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var openingHourstitle: UILabel!
+    
+    
     @IBOutlet weak var attractionDescription: UITextView!
     @IBOutlet weak var contactInfo: UILabel!
-    
-    
-    @IBOutlet weak var attractionOpeningHours: UILabel!
+    @IBOutlet weak var openingHours: UILabel!
+    @IBOutlet weak var attractionName: UILabel!
+    @IBOutlet weak var imagesCollectionView: UICollectionView!
+
+ 
     var attraction : SMAttraction?
     
     var ImageColectionCell : AttractionImageCollectionViewCell?
     
     
     
-    @IBOutlet weak var attractionName: UILabel!
     
-    
-    @IBOutlet weak var imagesCollectionView: UICollectionView!
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,7 +45,8 @@ class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollec
         
     }
     
-    func UpdateAttractionType (){
+    func UpdateAttractionOpeningHours (){
+       // openingHours.text = "٨ صباحاً - ٤ مساءً"
         
     }
     
@@ -63,7 +64,6 @@ class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollec
     func UpdateAttractionImages (){
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
-        
         imagesCollectionView.reloadData()
     }
     
