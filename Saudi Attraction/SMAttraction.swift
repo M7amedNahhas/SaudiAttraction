@@ -21,6 +21,7 @@ class SMAttraction: MKPointAnnotation{
     private var _description: String?
     private var _contactInfo: String?
     private var _images : [String]!
+    private var _openigTime: String?
    
     
     
@@ -32,7 +33,9 @@ class SMAttraction: MKPointAnnotation{
     }
     
 
-    
+    var openingTime : String {
+        return _openigTime!
+    }
     var type : String {
         return _type!
     }
@@ -64,7 +67,7 @@ class SMAttraction: MKPointAnnotation{
     }
     
     
-    init(name: String, latitude: Double, longitude: Double, description: String , type: String , contactInfo: String , images: [String]) {
+    init(name: String, latitude: Double, longitude: Double, description: String , type: String , contactInfo: String , images: [String], openingTime: String) {
         self._name = name
         self._latitude = latitude
         self._longitude = longitude
@@ -72,6 +75,7 @@ class SMAttraction: MKPointAnnotation{
         self._type = type
         self._contactInfo = contactInfo
         self._images = images
+        self._openigTime = openingTime
     }
    
     

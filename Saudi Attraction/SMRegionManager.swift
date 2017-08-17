@@ -73,6 +73,7 @@ class SMRegionManager : MKPointAnnotation {
                     let atDesc = attractionDic["Desc"] as? String ?? "NoDescription"
                     let atContactInfo = attractionDic["ContactInfo"] as? String ?? "NoContactInfo"
                     let atType = attractionDic["Type"] as? String ?? "NoType"
+                    let open = attractionDic["openingTime"] as? String ?? "NotWorking"
                     
                     let imagesArray = attractionDic["images"] as? [[String: Any]] ?? []
                     
@@ -81,8 +82,8 @@ class SMRegionManager : MKPointAnnotation {
                         images.append(imageDic["URL"] as? String ?? "")
                     }
                     
-                    if TypeID == "All" || atType == TypeID{
-                        attractionList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc, type: atType, contactInfo: atContactInfo, images: images))
+                    if TypeID == "الكل" || atType == TypeID{
+                        attractionList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc, type: atType, contactInfo: atContactInfo, images: images, openingTime: open))
                     }
                     
                 }

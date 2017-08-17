@@ -19,7 +19,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     var mapZoomUpdatedOnce = false
     var selectedAttraction : SMAttraction?
     var typesArray = [Category]()
-    var selectedSegmentType = "All"
+    var selectedSegmentType = "الكل"
     
     
     var ref = DatabaseReference.init()
@@ -323,7 +323,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     func preparePrepareSegmentView() {
         
       SMRegionManager.shared.LoadTypes{ [unowned self] (types) in
-            self.typesArray.append(Category(title: "All", image: " ", selectedImage: " "))
+            self.typesArray.append(Category(title: "الكل", image: " ", selectedImage: " "))
             for i in(0..<types.count){
                 self.typesArray.append(Category(title: types[i].name, image: " ", selectedImage: " "))
             }
