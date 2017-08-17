@@ -169,9 +169,23 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
         if (indexPath.row == 0 )
         {
             return 200
+        }else if (indexPath.row == 1 )
+        {
+            return 70
+        }else if (indexPath.row == 2 )
+        {
+            return 90
+        }else if (indexPath.row == 3 )
+        {
+            return 140
+            
+        }else if (indexPath.row == 4 )
+        {
+            return 50
         }
+
+        return 70
         
-        return 55
     }
 
 }

@@ -11,10 +11,13 @@ import UIKit
 class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollectionViewDataSource {
     
     
+    @IBOutlet weak var descriptionTitle: UILabel!
+    @IBOutlet weak var openingHourstitle: UILabel!
+    @IBOutlet weak var attractionDescription: UITextView!
     @IBOutlet weak var contactInfo: UILabel!
-    @IBOutlet weak var attractionDescription: UILabel!
     
-    @IBOutlet weak var attractionType: UILabel!
+    
+    @IBOutlet weak var attractionOpeningHours: UILabel!
     var attraction : SMAttraction?
     
     var ImageColectionCell : AttractionImageCollectionViewCell?
@@ -43,7 +46,7 @@ class DetailsTableViewCell: UITableViewCell, UICollectionViewDelegate , UICollec
     }
     
     func UpdateAttractionType (){
-        attractionType.text = attraction?.type
+        
     }
     
     func UpdateAttractionDescription() {
