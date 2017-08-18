@@ -27,7 +27,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
     
     @IBOutlet weak var Segment: NLSegmentControl!
     
-    @IBOutlet weak var detailsCView: UIView!
+    
     
 
     @IBOutlet var searchBarMap: UISearchBar!

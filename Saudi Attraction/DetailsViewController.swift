@@ -61,7 +61,7 @@ class DetailsViewController: UIViewController , UITableViewDataSource, UITableVi
             }
         }else if indexPath.row == 2 {
             
-            if let attractionOpeningHoursCell = tableView.dequeueReusableCell(withIdentifier: "attractionType", for: indexPath) as?DetailsTableViewCell {
+            if let attractionOpeningHoursCell = tableView.dequeueReusableCell(withIdentifier: "attractionOpeningHours", for: indexPath) as?DetailsTableViewCell {
                 
                 attractionOpeningHoursCell.attraction = attraction
                 attractionOpeningHoursCell.UpdateAttractionOpeningHours()
