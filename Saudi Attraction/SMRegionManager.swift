@@ -21,15 +21,8 @@ class SMRegionManager : MKPointAnnotation {
     
     
     private override init (){
-        
-  
+       
         regionList = []
-
-        
-     
-        
-        
-
     }
 
     
