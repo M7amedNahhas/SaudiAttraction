@@ -20,17 +20,21 @@ class SMAttraction: MKPointAnnotation{
     private var _type: String?
     private var _description: String?
     private var _contactInfo: String?
-    private var _image : [UIImage]?
-   // let details = MKPointAnnotation()
+    private var _images : [String]!
+    private var _openingTime : String?
+   
     
     
     func setAnnotation()   {
         self.coordinate = CLLocationCoordinate2DMake(_latitude, _longitude)
         self.title = name
-        self.subtitle = description
+        self.subtitle = type
   
     }
     
+    var openingTime : String {
+        return _openingTime!
+    }
 
     
     var type : String {
@@ -46,8 +50,8 @@ class SMAttraction: MKPointAnnotation{
         return _contactInfo!
     }
     
-    var images : [UIImage]{
-        return self.images
+    var images : [String]{
+        return self._images
     }
 
     var name: String {
@@ -64,16 +68,15 @@ class SMAttraction: MKPointAnnotation{
     }
     
     
-    init(name: String, latitude: Double, longitude: Double, description: String , type : String , contactInfo : String , images : [UIImage]) {
+    init(name: String, latitude: Double, longitude: Double, description: String , type: String , contactInfo: String , images: [String],openingTime: String) {
         self._name = name
         self._latitude = latitude
         self._longitude = longitude
         self._description = description
         self._type = type
         self._contactInfo = contactInfo
-        self._image = images
- 
-       
+        self._images = images
+        self._openingTime = openingTime
     }
    
     

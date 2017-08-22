@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -52,12 +62,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3146056861109F1590FA09347F772C67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>748122366A858E38D5CFDDD687BFC6B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>780D26A3FAD15F0249201FF936F016A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +98,11 @@
 			<true/>
 		</dict>
 		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFD5B31201BB5EA56C2A5041B75D1071</key>
 		<dict>
 			<key>primary</key>
 			<true/>

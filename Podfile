@@ -11,6 +11,8 @@ target 'Saudi Attraction' do
    pod 'Firebase/Database'
    pod 'Firebase/Storage'
    pod 'Firebase/Crash'
+   pod 'Alamofire'
+   pod 'AlamofireImage'
 
   target 'Saudi AttractionTests' do
     inherit! :search_paths

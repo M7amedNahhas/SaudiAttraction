@@ -11,7 +11,11 @@
 		62320E2F1F29C63D00873E79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62320E2E1F29C63D00873E79 /* MapKit.framework */; };
 		62320E311F29C67100873E79 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62320E301F29C67100873E79 /* CoreLocation.framework */; };
 		623895971F37365F00CDA32A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 623895961F37365F00CDA32A /* GoogleService-Info.plist */; };
+		624956351F4070FB006CA987 /* AttractionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624956341F4070FB006CA987 /* AttractionType.swift */; };
 		627CD82A1F30AD88009A5EC0 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627CD8291F30AD88009A5EC0 /* images.xcassets */; };
+		62F15C8D1F4C1ED3000A039E /* FirstTimeLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F15C8C1F4C1ED3000A039E /* FirstTimeLaunchViewController.swift */; };
+		62F15C921F4C9404000A039E /* 418-200.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F15C911F4C9404000A039E /* 418-200.png */; };
+		62F15C941F4C9445000A039E /* clipart-search-icon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F15C931F4C9445000A039E /* clipart-search-icon-3.png */; };
 		62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65CFA1F28B10B00914FB5 /* AppDelegate.swift */; };
 		62F65CFD1F28B10B00914FB5 /* SMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65CFC1F28B10B00914FB5 /* SMViewController.swift */; };
 		62F65D001F28B10B00914FB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F65CFE1F28B10B00914FB5 /* Main.storyboard */; };
@@ -21,6 +25,7 @@
 		62F65D1B1F28B10B00914FB5 /* Saudi_AttractionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D1A1F28B10B00914FB5 /* Saudi_AttractionUITests.swift */; };
 		62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2A1F28C03800914FB5 /* SMAttraction.swift */; };
 		62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F65D2C1F28C05F00914FB5 /* SMRegion.swift */; };
+		62F7A5E91F43208500DE359A /* MKRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F7A5E81F43208500DE359A /* MKRegionView.swift */; };
 		62F966C51F31B71F00567A16 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62F966C01F31B71F00567A16 /* Info.plist */; };
 		62F966C61F31B71F00567A16 /* NLSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C21F31B71F00567A16 /* NLSegmentControl.swift */; };
 		62F966C71F31B71F00567A16 /* NLSegmentControlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C31F31B71F00567A16 /* NLSegmentControlData.swift */; };
@@ -35,8 +40,10 @@
 		62F966EF1F3201BB00567A16 /* Mall.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EA1F3201BB00567A16 /* Mall.png */; };
 		62F966F01F3201BB00567A16 /* Religious.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EB1F3201BB00567A16 /* Religious.png */; };
 		62F966F11F3201BB00567A16 /* All.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EC1F3201BB00567A16 /* All.png */; };
+		C053047A1F41DF3B00F8CA89 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05304791F41DF3B00F8CA89 /* DetailsViewController.swift */; };
+		C053047C1F42E65F00F8CA89 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053047B1F42E65F00F8CA89 /* DetailsTableViewCell.swift */; };
+		C053047E1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053047D1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift */; };
 		C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515A1F31C61100F5D338 /* SMRegionManager.swift */; };
-		C09C515D1F3C837900F5D338 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09C515C1F3C837900F5D338 /* DetailsViewController.swift */; };
 		C09C515F1F3CA0A000F5D338 /* Alrajhi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */; };
 		E503B3E7E3064D356232853D /* Pods_Saudi_AttractionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */; };
 		E99E33C52A749475660921F1 /* Pods_Saudi_Attraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */; };
@@ -80,7 +87,11 @@
 		62320E2E1F29C63D00873E79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		62320E301F29C67100873E79 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		623895961F37365F00CDA32A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		624956341F4070FB006CA987 /* AttractionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionType.swift; sourceTree = "<group>"; };
 		627CD8291F30AD88009A5EC0 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		62F15C8C1F4C1ED3000A039E /* FirstTimeLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeLaunchViewController.swift; sourceTree = "<group>"; };
+		62F15C911F4C9404000A039E /* 418-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "418-200.png"; sourceTree = "<group>"; };
+		62F15C931F4C9445000A039E /* clipart-search-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clipart-search-icon-3.png"; sourceTree = "<group>"; };
 		62F65CF71F28B10B00914FB5 /* Saudi Attraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saudi Attraction.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F65CFA1F28B10B00914FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F65CFC1F28B10B00914FB5 /* SMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +107,7 @@
 		62F65D1C1F28B10B00914FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62F65D2A1F28C03800914FB5 /* SMAttraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMAttraction.swift; sourceTree = "<group>"; };
 		62F65D2C1F28C05F00914FB5 /* SMRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegion.swift; sourceTree = "<group>"; };
+		62F7A5E81F43208500DE359A /* MKRegionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKRegionView.swift; sourceTree = "<group>"; };
 		62F966C01F31B71F00567A16 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62F966C11F31B71F00567A16 /* NLSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSegmentControl.h; sourceTree = "<group>"; };
 		62F966C21F31B71F00567A16 /* NLSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLSegmentControl.swift; sourceTree = "<group>"; };
@@ -117,8 +129,10 @@
 		95D86EABCB225879F85BC4FC /* Pods-Saudi AttractionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.release.xcconfig"; sourceTree = "<group>"; };
 		9AA5A8EB44A8BCBAFF3D781B /* Pods-Saudi AttractionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B77E92A8E13DB23A61B658E2 /* Pods_Saudi_Attraction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_Attraction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C05304791F41DF3B00F8CA89 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C053047B1F42E65F00F8CA89 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		C053047D1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C09C515A1F31C61100F5D338 /* SMRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRegionManager.swift; sourceTree = "<group>"; };
-		C09C515C1F3C837900F5D338 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Alrajhi.jpg; sourceTree = "<group>"; };
 		C47B50EA33B56A8F9AD40F84 /* Pods_Saudi_AttractionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -194,6 +208,7 @@
 		62F65CF91F28B10B00914FB5 /* Saudi Attraction */ = {
 			isa = PBXGroup;
 			children = (
+				62F15C8C1F4C1ED3000A039E /* FirstTimeLaunchViewController.swift */,
 				62F966BF1F31B71F00567A16 /* NLSegmentControl */,
 				62F65D2E1F28C0CD00914FB5 /* Assets */,
 				62F966F21F3201C900567A16 /* images */,
@@ -202,10 +217,14 @@
 				62F65D2C1F28C05F00914FB5 /* SMRegion.swift */,
 				C09C515A1F31C61100F5D338 /* SMRegionManager.swift */,
 				62F65D2A1F28C03800914FB5 /* SMAttraction.swift */,
+				624956341F4070FB006CA987 /* AttractionType.swift */,
 				62F966D61F31B92300567A16 /* Category.swift */,
-				C09C515C1F3C837900F5D338 /* DetailsViewController.swift */,
+				C05304791F41DF3B00F8CA89 /* DetailsViewController.swift */,
+				C053047B1F42E65F00F8CA89 /* DetailsTableViewCell.swift */,
+				C053047D1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift */,
 				62F65D061F28B10B00914FB5 /* Info.plist */,
 				62F966E61F3201A200567A16 /* image.xcassets */,
+				62F7A5E81F43208500DE359A /* MKRegionView.swift */,
 			);
 			path = "Saudi Attraction";
 			sourceTree = "<group>";
@@ -254,8 +273,10 @@
 		62F966F21F3201C900567A16 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				62F15C911F4C9404000A039E /* 418-200.png */,
 				62F966D81F31C86100567A16 /* my_location_black_192x192.png */,
 				62F966E81F3201BB00567A16 /* Historical.png */,
+				62F15C931F4C9445000A039E /* clipart-search-icon-3.png */,
 				62F966E91F3201BB00567A16 /* Park.png */,
 				62F966EA1F3201BB00567A16 /* Mall.png */,
 				C09C515E1F3CA09F00F5D338 /* Alrajhi.jpg */,
@@ -412,6 +433,8 @@
 				62F966ED1F3201BB00567A16 /* Historical.png in Resources */,
 				627CD82A1F30AD88009A5EC0 /* images.xcassets in Resources */,
 				62F966C51F31B71F00567A16 /* Info.plist in Resources */,
+				62F15C941F4C9445000A039E /* clipart-search-icon-3.png in Resources */,
+				62F15C921F4C9404000A039E /* 418-200.png in Resources */,
 				62F966E71F3201A200567A16 /* image.xcassets in Resources */,
 				62F966F11F3201BB00567A16 /* All.png in Resources */,
 				62F966D91F31C86100567A16 /* my_location_black_192x192.png in Resources */,
@@ -594,14 +617,19 @@
 			files = (
 				62F966D71F31B92300567A16 /* Category.swift in Sources */,
 				62F966C61F31B71F00567A16 /* NLSegmentControl.swift in Sources */,
+				62F15C8D1F4C1ED3000A039E /* FirstTimeLaunchViewController.swift in Sources */,
+				C053047E1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift in Sources */,
 				62F65CFD1F28B10B00914FB5 /* SMViewController.swift in Sources */,
 				62F65CFB1F28B10B00914FB5 /* AppDelegate.swift in Sources */,
+				62F7A5E91F43208500DE359A /* MKRegionView.swift in Sources */,
+				624956351F4070FB006CA987 /* AttractionType.swift in Sources */,
 				C09C515B1F31C61200F5D338 /* SMRegionManager.swift in Sources */,
+				C053047C1F42E65F00F8CA89 /* DetailsTableViewCell.swift in Sources */,
 				62F65D2D1F28C05F00914FB5 /* SMRegion.swift in Sources */,
 				62F966C81F31B71F00567A16 /* UIView+Layout.swift in Sources */,
 				62F966C71F31B71F00567A16 /* NLSegmentControlData.swift in Sources */,
 				62F65D2B1F28C03800914FB5 /* SMAttraction.swift in Sources */,
-				C09C515D1F3C837900F5D338 /* DetailsViewController.swift in Sources */,
+				C053047A1F41DF3B00F8CA89 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

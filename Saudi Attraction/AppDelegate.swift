@@ -9,16 +9,37 @@
 import UIKit
 import Firebase
 
+var launch = ""
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+    self.window = UIWindow(frame: UIScreen.main.bounds)
         FirebaseApp.configure()
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        var vc: UIViewController
+        
+        if (UserDefaults.standard.bool(forKey: "firstLaunch")){
+            //show onboarding screen
+            
+            vc = storyBoard.instantiateInitialViewController()!
+
+        }else{
+            //show main screen
+            vc = storyBoard.instantiateViewController(withIdentifier: "FirstLuanch")
+            UserDefaults.standard.set(true, forKey: "firstLaunch")
+        }
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
         return true
     }
 

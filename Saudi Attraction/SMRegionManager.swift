@@ -8,65 +8,132 @@
 
 import Foundation
 import MapKit
+import Firebase
 
 class SMRegionManager : MKPointAnnotation {
     
-    var regionList : [SMRegion]
+    var regionList : [SMRegion] = []
+    var ref: DatabaseReference!
+    var LoadTypeFromServerArray:[AttractionType] = []
+    var LoadPinsSellected:[AttractionType] = []
     
- 
+    
+    
     
     private override init (){
-        
-  
+       
         regionList = []
-        
-        
-        
-        
-        let makkahRegion = SMRegion(regionName: "Makkah", longitude:39.85791180000001 , latitude:21.3890824 )
-        
-        makkahRegion.attractionList?.append(SMAttraction(name: "Masjed Alrajhi", latitude: 21.381840, longitude: 39.873662, description: "Masjid Aishah Alrajhi in Alnseem", type: "Religious", contactInfo: "-", images: []))
-    /*    makkahRegion.attractionList?.append(SMAttraction(name: "Haram", latitude: 21.3890824, longitude: 39.85791180000001, description: "HARAM"))
-        makkahRegion.attractionList?.append(SMAttraction(name: "Makkah mall", latitude: 21.391079, longitude: 39.884589, description: "mall of makkah"))
-        
+    }
 
-        
-        let jeddahRegion = SMRegion(regionName: "Jeddah", longitude: 39.23755069999993, latitude: 21.2854067)
-        
-        jeddahRegion.attractionList?.append(SMAttraction(name: "Red Sea Mall", latitude: 21.62759051831776, longitude: 39.11081314086914, description: "Shopping mall"))
-        
-        
-        
-        
-        let riyadhRegion = SMRegion(regionName: "Riyadh", longitude: 46.67529569999999, latitude: 24.7135517)
-        riyadhRegion.attractionList?.append(SMAttraction(name: "Al Faisaliyah ", latitude: 24.6905765, longitude: 46.68509700000004, description: " "))
-        riyadhRegion.attractionList?.append(SMAttraction(name: "برج المملكة ", latitude: 24.7111837, longitude: 46.67340100000001, description: " "))
-        
-        
-        
-        
-        let madinahRegion = SMRegion(regionName: "Almadinah", longitude:39.61051940917969 , latitude:24.468088137204234 )
-        madinahRegion.attractionList?.append(SMAttraction(name: "المسجد النبوي الشريف", latitude: 24.468088137204234, longitude: 39.61051940917969, description: " "))
-        madinahRegion.attractionList?.append(SMAttraction(name: "جبل أحد", latitude: 24.5217701, longitude: 39.62600580000003, description: " "))
-        madinahRegion.attractionList?.append(SMAttraction(name: "Alnoor Mall", latitude: 24.4961496, longitude: 39.59560550000003, description: "Shopping mall"))
+    
 
-             regionList.append(jeddahRegion)
-             regionList.append(riyadhRegion)
-             regionList.append(madinahRegion)
-
- 
- */
+    func loedCity(completionHandler:@escaping ([SMRegion]) -> ()){
+        ref = Database.database().reference()
+        ref.child("SA/citys").queryOrdered(byChild: "CityName").observe(.value, with: {(snapshot)in
+            
+            
+            if let arry = snapshot.value as? [[String: Any]]{
+                
+                for regionDic in arry{
+                    let CityID = regionDic["id"] as? String ?? "id"
+                    let CityName = regionDic["CityName"] as? String ?? "NoCityName"
+                    let CityLat = regionDic["CityLat"] as? Double ?? 0.0
+                    let CityLong = regionDic["CityLong"] as? Double ?? 0.0
+                    
+                    self.regionList.append(SMRegion(regionID: CityID, regionName: CityName, latitude: CityLat, longitude: CityLong))
+                }
+                
+                print("My region",self.regionList)
+                
+            }
+            
+            completionHandler(self.regionList)
+        }
+        )}
+    
+    
+    
+    func loadAttraction(regionID: String,TypeID: String, completionHandler:@escaping ([SMAttraction]) -> ()) {
+        ref = Database.database().reference()
+        ref.child("SA/Attraction").child("\(regionID)").queryOrdered(byChild: "atName").observe(.value, with: {(snapshot)in
+            
+            var attractionList = [SMAttraction]()
+            if let array = snapshot.value as? [[String: Any]]{
+                for attractionDic in array {
+                    let atName = attractionDic["name"] as? String ?? "NoName"
+                    let atLat = attractionDic["lat"] as? Double ?? 0.0
+                    let atlong = attractionDic["lng"] as? Double ?? 0.0
+                    let atDesc = attractionDic["Desc"] as? String ?? "NoDescription"
+                    let atContactInfo = attractionDic["ContactInfo"] as? String ?? "NoContactInfo"
+                    let atType = attractionDic["Type"] as? String ?? "NoType"
+                    let opTime = attractionDic["openingTime"] as? String ?? "noData"
+                    
+                    let imagesArray = attractionDic["images"] as? [[String: Any]] ?? []
+                    
+                    var images = [String]()
+                    for imageDic in imagesArray {
+                        images.append(imageDic["URL"] as? String ?? "")
+                    }
+                    
+                    if TypeID == "الكل" || atType == TypeID{
+                        attractionList.append(SMAttraction(name: atName, latitude: atLat, longitude: atlong, description: atDesc, type: atType, contactInfo: atContactInfo, images: images, openingTime: opTime))
+                    }
+                    
+                }
+                
+                completionHandler(attractionList)
+            }
+        })
         
-              regionList.append(makkahRegion)
+        
     }
     
- 
-   
-    
-  
-    
-    
+    func LoadTypes(completionHandler:@escaping ([AttractionType]) -> ()) {
+        ref = Database.database().reference()
+        self.ref.child("SA").child("Types").queryOrdered(byChild: "name").observe(.value, with: {(snapshot) in
+
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                self.LoadTypeFromServerArray.removeAll()
+                
+                for snap in snapshot {
+                    if let postDict = snap.value as? [String : Any] {
+                        let name = postDict["name"] as? String ?? "NoName"
+                        let URL = postDict["image"] as? String ?? "NoURL"
+                        let ID = postDict["id"] as? String ?? "NoID"
+                        self.LoadTypeFromServerArray.append(AttractionType(name: name, URL: URL, ID: ID))
+                    }
+                }
+                
+                completionHandler(self.LoadTypeFromServerArray)
+            }
             
+        })
+    }
+    
+    func selectedLoadTypes(selectedType: String,completionHandler:@escaping ([AttractionType]) -> ()) {
+        ref = Database.database().reference()
+        self.ref.child("SA").child("Types").queryOrdered(byChild: selectedType).observe(.value, with: {(snapshot) in
+            
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                self.LoadPinsSellected.removeAll()
+                
+                for snap in snapshot {
+                    if let postDict = snap.value as? [String : Any] {
+                       
+                        self.LoadPinsSellected.append( AttractionType(name: "", URL: "", ID: selectedType))
+                    }
+                }
+                
+                completionHandler(self.LoadTypeFromServerArray)
+            }
+            
+        })
+    }
+    
+
+    
     func setRegionList () -> [SMRegion] {
         return regionList
     }

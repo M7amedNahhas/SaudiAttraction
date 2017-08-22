@@ -1,26 +1,33 @@
 //
-//  SMRegionViewController.swift
+//  FirstTimeLaunchViewController.swift
 //  Saudi Attraction
 //
-//  Created by M7amedNahhas on 11/3/1438 AH.
+//  Created by M7amedNahhas on 11/30/1438 AH.
 //  Copyright © 1438 WadiMakkah. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import MapKit
 
-class SMRegionViewController: UIViewController,UISearchBarDelegate,CLLocationManagerDelegate {
+class FirstTimeLaunchViewController: UIViewController {
     
-    @IBOutlet weak var AttractionSearchBar: UISearchBar!
+   
+   var time = UserDefaults.standard.bool(forKey: "firstLaunch")
     
-    @IBOutlet weak var RegionMap: MKMapView!
 
+    @IBOutlet weak var lable: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func startBt(_ sender: UIButton) {
+        
+        time = true
+        performSegue(withIdentifier: "toMain",sender: self)
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
