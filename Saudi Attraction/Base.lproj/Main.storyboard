@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,31 +31,14 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" id="PFc-xT-MnE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كنوز المملكة هي معالمها السياحية , ولكي تجد هذه الكنوز لابد من وجود خريطة تدلك عليها, فهل انت مستعد؟" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wa-b9-DZa">
-                                <rect key="frame" x="35" y="187" width="305" height="292"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="292" id="S4y-YF-uZ8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Wa-b9-DZa" secondAttribute="trailing" constant="19" id="ATk-Es-s1F"/>
-                            <constraint firstItem="5Wa-b9-DZa" firstAttribute="leading" secondItem="i0v-14-uk6" secondAttribute="leadingMargin" constant="19" id="bSQ-MW-PLJ"/>
                             <constraint firstItem="JGl-lt-mIN" firstAttribute="leading" secondItem="i0v-14-uk6" secondAttribute="leadingMargin" constant="51" id="eja-WK-rmf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Wa-b9-DZa" secondAttribute="trailing" constant="19" id="g2b-CN-gNQ"/>
-                            <constraint firstItem="5Wa-b9-DZa" firstAttribute="centerY" secondItem="i0v-14-uk6" secondAttribute="centerY" id="hSa-cW-vAm"/>
                             <constraint firstItem="JCi-2J-nrS" firstAttribute="top" secondItem="JGl-lt-mIN" secondAttribute="bottom" constant="62" id="i5F-mX-Q9V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JGl-lt-mIN" secondAttribute="trailing" constant="51" id="j4C-Nh-ahm"/>
-                            <constraint firstItem="5Wa-b9-DZa" firstAttribute="leading" secondItem="i0v-14-uk6" secondAttribute="leadingMargin" constant="19" id="rCV-Hw-6gc"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="lable" destination="5Wa-b9-DZa" id="KVl-4t-qko"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oru-gz-vSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,8 +193,6 @@
                                                                 <constraint firstItem="JWc-tb-EBN" firstAttribute="top" secondItem="bYt-FA-IHw" secondAttribute="top" id="iou-at-g0P"/>
                                                                 <constraint firstAttribute="trailing" secondItem="JWc-tb-EBN" secondAttribute="trailing" id="lVK-b9-EHo"/>
                                                                 <constraint firstAttribute="bottom" secondItem="JWc-tb-EBN" secondAttribute="bottom" id="rDV-V1-EPG"/>
-                                                                <constraint firstItem="JWc-tb-EBN" firstAttribute="leading" secondItem="bYt-FA-IHw" secondAttribute="leading" id="s4G-Ka-pR8"/>
-                                                                <constraint firstItem="JWc-tb-EBN" firstAttribute="leading" secondItem="bYt-FA-IHw" secondAttribute="leadingMargin" constant="-8" id="x5a-ae-Ttn"/>
                                                             </constraints>
                                                             <size key="customSize" width="343" height="200"/>
                                                             <connections>
@@ -300,7 +281,7 @@
                                                     <size key="shadowOffset" width="2" height="-1"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• متاح في الأوقات التالية :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Eg-fL-C95">
-                                                    <rect key="frame" x="152" y="2" width="181" height="21"/>
+                                                    <rect key="frame" x="150.5" y="2" width="182.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -310,7 +291,7 @@
                                                 <constraint firstItem="W0Z-gp-2hc" firstAttribute="top" secondItem="0Eg-fL-C95" secondAttribute="bottom" constant="8" id="CCZ-HR-Xyv"/>
                                                 <constraint firstItem="0Eg-fL-C95" firstAttribute="top" secondItem="ybi-ic-75b" secondAttribute="top" constant="2" id="NAS-Yz-kZG"/>
                                                 <constraint firstAttribute="trailing" secondItem="0Eg-fL-C95" secondAttribute="trailing" constant="10" id="S2K-pN-zp8"/>
-                                                <constraint firstItem="0Eg-fL-C95" firstAttribute="leading" secondItem="ybi-ic-75b" secondAttribute="leading" constant="152" id="gse-1Z-TEd"/>
+                                                <constraint firstItem="0Eg-fL-C95" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ybi-ic-75b" secondAttribute="leading" id="gse-1Z-TEd"/>
                                                 <constraint firstItem="W0Z-gp-2hc" firstAttribute="leading" secondItem="ybi-ic-75b" secondAttribute="leadingMargin" constant="2" id="nZ3-Hs-eS7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="W0Z-gp-2hc" secondAttribute="trailing" constant="2" id="oKV-qR-Fvb"/>
                                                 <constraint firstItem="W0Z-gp-2hc" firstAttribute="top" secondItem="ybi-ic-75b" secondAttribute="top" constant="31" id="rOZ-rF-y48"/>
@@ -341,7 +322,7 @@
                                                     <dataDetectorType key="dataDetectorTypes" calendarEvent="YES"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• نبذة عن المكان :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT0-Y5-6qu">
-                                                    <rect key="frame" x="159" y="0.0" width="167" height="31"/>
+                                                    <rect key="frame" x="197.5" y="0.0" width="128.5" height="31"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -350,7 +331,7 @@
                                             <constraints>
                                                 <constraint firstItem="nT0-Y5-6qu" firstAttribute="top" secondItem="hkX-mI-flE" secondAttribute="top" id="6eE-id-RA1"/>
                                                 <constraint firstAttribute="trailing" secondItem="nT0-Y5-6qu" secondAttribute="trailing" constant="17" id="FhK-9R-7oG"/>
-                                                <constraint firstItem="nT0-Y5-6qu" firstAttribute="leading" secondItem="hkX-mI-flE" secondAttribute="leading" constant="159" id="LMo-0b-x74"/>
+                                                <constraint firstItem="nT0-Y5-6qu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hkX-mI-flE" secondAttribute="leading" id="LMo-0b-x74"/>
                                                 <constraint firstItem="gWX-AT-SNh" firstAttribute="centerX" secondItem="hkX-mI-flE" secondAttribute="centerX" id="ccO-L0-F1a"/>
                                                 <constraint firstItem="gWX-AT-SNh" firstAttribute="top" secondItem="nT0-Y5-6qu" secondAttribute="bottom" constant="8" symbolic="YES" id="hD2-Vy-cMe"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="gWX-AT-SNh" secondAttribute="bottom" constant="-7.5" id="jkk-3G-ubS"/>
@@ -379,7 +360,7 @@
                                                     <size key="shadowOffset" width="1" height="-1"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- للتواصل :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezV-ih-Iew">
-                                                    <rect key="frame" x="260" y="8" width="73" height="29"/>
+                                                    <rect key="frame" x="252.5" y="8" width="80.5" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -389,6 +370,7 @@
                                                 <constraint firstItem="Pyg-pv-PG3" firstAttribute="top" secondItem="ezV-ih-Iew" secondAttribute="bottom" constant="-7" id="9hu-BZ-fcK"/>
                                                 <constraint firstItem="ezV-ih-Iew" firstAttribute="top" secondItem="OlC-PI-D5T" secondAttribute="top" constant="8" id="Hce-ST-g7j"/>
                                                 <constraint firstAttribute="bottom" secondItem="Pyg-pv-PG3" secondAttribute="bottom" id="UFK-rk-Lyc"/>
+                                                <constraint firstItem="ezV-ih-Iew" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OlC-PI-D5T" secondAttribute="leading" constant="20" symbolic="YES" id="bnV-AW-6w1"/>
                                                 <constraint firstAttribute="trailing" secondItem="ezV-ih-Iew" secondAttribute="trailing" constant="10" id="eXU-Gi-Qer"/>
                                                 <constraint firstItem="Pyg-pv-PG3" firstAttribute="top" secondItem="OlC-PI-D5T" secondAttribute="top" constant="30" id="r32-72-asT"/>
                                                 <constraint firstAttribute="trailing" secondItem="Pyg-pv-PG3" secondAttribute="trailing" constant="10" id="rRP-AR-rQP"/>

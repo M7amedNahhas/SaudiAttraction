@@ -30,11 +30,8 @@
 		62F966C61F31B71F00567A16 /* NLSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C21F31B71F00567A16 /* NLSegmentControl.swift */; };
 		62F966C71F31B71F00567A16 /* NLSegmentControlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C31F31B71F00567A16 /* NLSegmentControlData.swift */; };
 		62F966C81F31B71F00567A16 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966C41F31B71F00567A16 /* UIView+Layout.swift */; };
-		62F966D11F31B8D500567A16 /* NLSegmentControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */; };
-		62F966D21F31B8D500567A16 /* NLSegmentControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62F966D71F31B92300567A16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F966D61F31B92300567A16 /* Category.swift */; };
 		62F966D91F31C86100567A16 /* my_location_black_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966D81F31C86100567A16 /* my_location_black_192x192.png */; };
-		62F966E71F3201A200567A16 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F966E61F3201A200567A16 /* image.xcassets */; };
 		62F966ED1F3201BB00567A16 /* Historical.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966E81F3201BB00567A16 /* Historical.png */; };
 		62F966EE1F3201BB00567A16 /* Park.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966E91F3201BB00567A16 /* Park.png */; };
 		62F966EF1F3201BB00567A16 /* Mall.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F966EA1F3201BB00567A16 /* Mall.png */; };
@@ -73,7 +70,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				62F966D21F31B8D500567A16 /* NLSegmentControl.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +85,7 @@
 		623895961F37365F00CDA32A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		624956341F4070FB006CA987 /* AttractionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionType.swift; sourceTree = "<group>"; };
 		627CD8291F30AD88009A5EC0 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		62B85CC81F8C6C7A00B38640 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NLSegmentControl.framework; path = "../../../Library/Developer/Xcode/DerivedData/NLSegmentControlExample-afqvapvdmbuoajfmmkhpisajnqcb/Build/Products/Debug-iphonesimulator/NLSegmentControl.framework"; sourceTree = "<group>"; };
 		62F15C8C1F4C1ED3000A039E /* FirstTimeLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeLaunchViewController.swift; sourceTree = "<group>"; };
 		62F15C911F4C9404000A039E /* 418-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "418-200.png"; sourceTree = "<group>"; };
 		62F15C931F4C9445000A039E /* clipart-search-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clipart-search-icon-3.png"; sourceTree = "<group>"; };
@@ -115,15 +112,15 @@
 		62F966C41F31B71F00567A16 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		62F966C91F31B75C00567A16 /* NLSegmentControl.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = NLSegmentControl.podspec; path = "../../Downloads/NLSegmentControl-master/NLSegmentControl.podspec"; sourceTree = "<group>"; };
 		62F966CB1F31B89700567A16 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NLSegmentControl.framework; path = "../../Library/Developer/Xcode/DerivedData/NLSegmentControlExample-dfrgeaostrbqvcghbbjepjgewfii/Build/Products/Debug-iphonesimulator/NLSegmentControl.framework"; sourceTree = "<group>"; };
-		62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NLSegmentControl.framework; sourceTree = "<group>"; };
 		62F966D61F31B92300567A16 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		62F966D81F31C86100567A16 /* my_location_black_192x192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_location_black_192x192.png; sourceTree = "<group>"; };
-		62F966E61F3201A200567A16 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
 		62F966E81F3201BB00567A16 /* Historical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Historical.png; sourceTree = "<group>"; };
 		62F966E91F3201BB00567A16 /* Park.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Park.png; sourceTree = "<group>"; };
 		62F966EA1F3201BB00567A16 /* Mall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mall.png; sourceTree = "<group>"; };
 		62F966EB1F3201BB00567A16 /* Religious.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Religious.png; sourceTree = "<group>"; };
 		62F966EC1F3201BB00567A16 /* All.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = All.png; sourceTree = "<group>"; };
+		62FD5F4B1F8E9FA2005E5995 /* mapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPin.png; path = ../../../mapPin.png; sourceTree = "<group>"; };
+		62FD5F4D1F8EA13D005E5995 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = image.xcassets; path = "../../../../Downloads/SaudiAttraction-master/Saudi Attraction/image.xcassets"; sourceTree = "<group>"; };
 		7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA210420C17CD746C88B1A7 /* Pods-Saudi Attraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi Attraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi Attraction/Pods-Saudi Attraction.debug.xcconfig"; sourceTree = "<group>"; };
 		95D86EABCB225879F85BC4FC /* Pods-Saudi AttractionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +139,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62F966D11F31B8D500567A16 /* NLSegmentControl.framework in Frameworks */,
 				62320E311F29C67100873E79 /* CoreLocation.framework in Frameworks */,
 				62320E2F1F29C63D00873E79 /* MapKit.framework in Frameworks */,
 				E99E33C52A749475660921F1 /* Pods_Saudi_Attraction.framework in Frameworks */,
@@ -182,16 +178,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		62B85CB51F8C5EC900B38640 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				627CD8291F30AD88009A5EC0 /* images.xcassets */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		62F65CEE1F28B10B00914FB5 = {
 			isa = PBXGroup;
 			children = (
-				62F966CD1F31B8A700567A16 /* NLSegmentControl.framework */,
+				62B85CC81F8C6C7A00B38640 /* NLSegmentControl.framework */,
 				62F65CF91F28B10B00914FB5 /* Saudi Attraction */,
 				62F65D0E1F28B10B00914FB5 /* Saudi AttractionTests */,
 				62F65D191F28B10B00914FB5 /* Saudi AttractionUITests */,
 				62F65CF81F28B10B00914FB5 /* Products */,
 				8F9A815094C1D5FB1E19867C /* Pods */,
 				227F8770AE61159A4B62C9E8 /* Frameworks */,
+				62B85CB51F8C5EC900B38640 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +220,7 @@
 				62F65CFE1F28B10B00914FB5 /* Main.storyboard */,
 				62F65CFC1F28B10B00914FB5 /* SMViewController.swift */,
 				62F65D2C1F28C05F00914FB5 /* SMRegion.swift */,
+				62FD5F4D1F8EA13D005E5995 /* image.xcassets */,
 				C09C515A1F31C61100F5D338 /* SMRegionManager.swift */,
 				62F65D2A1F28C03800914FB5 /* SMAttraction.swift */,
 				624956341F4070FB006CA987 /* AttractionType.swift */,
@@ -223,7 +229,6 @@
 				C053047B1F42E65F00F8CA89 /* DetailsTableViewCell.swift */,
 				C053047D1F43228000F8CA89 /* AttractionImageCollectionViewCell.swift */,
 				62F65D061F28B10B00914FB5 /* Info.plist */,
-				62F966E61F3201A200567A16 /* image.xcassets */,
 				62F7A5E81F43208500DE359A /* MKRegionView.swift */,
 			);
 			path = "Saudi Attraction";
@@ -276,6 +281,7 @@
 				62F15C911F4C9404000A039E /* 418-200.png */,
 				62F966D81F31C86100567A16 /* my_location_black_192x192.png */,
 				62F966E81F3201BB00567A16 /* Historical.png */,
+				62FD5F4B1F8E9FA2005E5995 /* mapPin.png */,
 				62F15C931F4C9445000A039E /* clipart-search-icon-3.png */,
 				62F966E91F3201BB00567A16 /* Park.png */,
 				62F966EA1F3201BB00567A16 /* Mall.png */,
@@ -373,7 +379,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = WadiMakkah;
 				TargetAttributes = {
 					62F65CF61F28B10B00914FB5 = {
@@ -435,7 +441,6 @@
 				62F966C51F31B71F00567A16 /* Info.plist in Resources */,
 				62F15C941F4C9445000A039E /* clipart-search-icon-3.png in Resources */,
 				62F15C921F4C9404000A039E /* 418-200.png in Resources */,
-				62F966E71F3201A200567A16 /* image.xcassets in Resources */,
 				62F966F11F3201BB00567A16 /* All.png in Resources */,
 				62F966D91F31C86100567A16 /* my_location_black_192x192.png in Resources */,
 				62F65D001F28B10B00914FB5 /* Main.storyboard in Resources */,
@@ -694,7 +699,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -702,7 +709,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -745,7 +756,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -753,7 +766,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
