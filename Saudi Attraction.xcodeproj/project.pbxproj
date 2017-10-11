@@ -85,7 +85,6 @@
 		623895961F37365F00CDA32A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		624956341F4070FB006CA987 /* AttractionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionType.swift; sourceTree = "<group>"; };
 		627CD8291F30AD88009A5EC0 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
-		62B85CC81F8C6C7A00B38640 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NLSegmentControl.framework; path = "../../../Library/Developer/Xcode/DerivedData/NLSegmentControlExample-afqvapvdmbuoajfmmkhpisajnqcb/Build/Products/Debug-iphonesimulator/NLSegmentControl.framework"; sourceTree = "<group>"; };
 		62F15C8C1F4C1ED3000A039E /* FirstTimeLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeLaunchViewController.swift; sourceTree = "<group>"; };
 		62F15C911F4C9404000A039E /* 418-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "418-200.png"; sourceTree = "<group>"; };
 		62F15C931F4C9445000A039E /* clipart-search-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clipart-search-icon-3.png"; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		62F966EC1F3201BB00567A16 /* All.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = All.png; sourceTree = "<group>"; };
 		62FD5F4B1F8E9FA2005E5995 /* mapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapPin.png; path = ../../../mapPin.png; sourceTree = "<group>"; };
 		62FD5F4D1F8EA13D005E5995 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = image.xcassets; path = "../../../../Downloads/SaudiAttraction-master/Saudi Attraction/image.xcassets"; sourceTree = "<group>"; };
+		62FD5F4E1F8EA51D005E5995 /* NLSegmentControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NLSegmentControl.framework; path = "../../Library/Developer/Xcode/DerivedData/NLSegmentControlExample-afqvapvdmbuoajfmmkhpisajnqcb/Build/Products/Debug-iphoneos/NLSegmentControl.framework"; sourceTree = "<group>"; };
 		7632B7448E51DAC19CBB14FB /* Pods_Saudi_AttractionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saudi_AttractionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA210420C17CD746C88B1A7 /* Pods-Saudi Attraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi Attraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi Attraction/Pods-Saudi Attraction.debug.xcconfig"; sourceTree = "<group>"; };
 		95D86EABCB225879F85BC4FC /* Pods-Saudi AttractionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saudi AttractionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saudi AttractionTests/Pods-Saudi AttractionTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		62F65CEE1F28B10B00914FB5 = {
 			isa = PBXGroup;
 			children = (
-				62B85CC81F8C6C7A00B38640 /* NLSegmentControl.framework */,
+				62FD5F4E1F8EA51D005E5995 /* NLSegmentControl.framework */,
 				62F65CF91F28B10B00914FB5 /* Saudi Attraction */,
 				62F65D0E1F28B10B00914FB5 /* Saudi AttractionTests */,
 				62F65D191F28B10B00914FB5 /* Saudi AttractionUITests */,
