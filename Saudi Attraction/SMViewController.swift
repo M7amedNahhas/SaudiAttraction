@@ -98,6 +98,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             if v == nil {
 
                 v = MKRegionView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+                v!.image = UIImage(named :"mapPin")
 
                 v!.image = UIImage(named:"mapPin")
                 v!.setSelected(true, animated: true)
@@ -348,7 +349,7 @@ class SMViewController: UIViewController,CLLocationManagerDelegate , UISearchBar
             
             
             
-            let imageTextSegment = NLSegmentControl(segments: typesArray)
+            let imageTextSegment = NLSegmentControl(segments: typesArray as [NLSegment])
             //segmented
             self.Segment.addSubview(imageTextSegment)
             imageTextSegment.selectionIndicatorColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
