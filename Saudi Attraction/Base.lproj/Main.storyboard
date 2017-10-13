@@ -22,10 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGl-lt-mIN">
-                                <rect key="frame" x="67" y="572" width="241" height="33"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="ابداء "/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGl-lt-mIN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <state key="normal" image="3- splash scren.jpg"/>
                                 <connections>
                                     <action selector="startBt:" destination="aK7-ew-2Y5" eventType="touchUpInside" id="tT1-AF-nT0"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" id="PFc-xT-MnE"/>
@@ -34,9 +33,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JGl-lt-mIN" firstAttribute="leading" secondItem="i0v-14-uk6" secondAttribute="leadingMargin" constant="51" id="eja-WK-rmf"/>
-                            <constraint firstItem="JCi-2J-nrS" firstAttribute="top" secondItem="JGl-lt-mIN" secondAttribute="bottom" constant="62" id="i5F-mX-Q9V"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JGl-lt-mIN" secondAttribute="trailing" constant="51" id="j4C-Nh-ahm"/>
+                            <constraint firstItem="JGl-lt-mIN" firstAttribute="bottom" secondItem="JCi-2J-nrS" secondAttribute="top" id="JgJ-2H-XTc"/>
+                            <constraint firstItem="JGl-lt-mIN" firstAttribute="top" secondItem="i0v-14-uk6" secondAttribute="top" id="VmM-UK-pok"/>
+                            <constraint firstAttribute="trailing" secondItem="JGl-lt-mIN" secondAttribute="trailing" id="rKJ-q7-Dvl"/>
+                            <constraint firstItem="JGl-lt-mIN" firstAttribute="leading" secondItem="i0v-14-uk6" secondAttribute="leading" id="rVS-wR-p2M"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -424,6 +424,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="3- splash scren.jpg" width="750" height="1334"/>
         <image name="418-200.png" width="39" height="39"/>
         <image name="clipart-search-icon-3.png" width="39" height="39"/>
     </resources>
