@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Saudi_Attraction
+//@testable import Saudi_Attraction
 
 class Saudi_AttractionTests: XCTestCase {
     
